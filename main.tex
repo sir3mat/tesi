@@ -1,6 +1,42 @@
-\documentclass{article}
+\documentclass[a4paper,12pt]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[numbers]{natbib}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[left=3.00cm, right=2.00cm, top=3.00cm, bottom=3.00cm]{geometry}
+\bibliographystyle{IEEEtranN}
+\newenvironment{abstract}{}{}
+\usepackage{abstract}
+\hypersetup{
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Matteo Sirri},                     % author
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+
+\pagestyle{plain}
+\linespread{1.5}
 
 \begin{document}
-First document. This is a simple example, with no
-extra parameters or packages included.
+\frontmatter
+
+\input{src/frontespizio/frontespizio.tex}
+\input{src/abstract/abstract.tex}
+\input{src/indice/indice.tex}
+
+\mainmatter
+
+\input{src/introduzione/introduzione.tex}
+\input{src/corpo/corpo.tex}
+\input{src/conclusioni/conclusioni.tex}
+
+\backmatter
+\nocite{*}
+\input{src/bibliografia/bibliografia.tex}
+
 \end{document}

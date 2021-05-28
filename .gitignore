@@ -3,3 +3,7 @@
 /main.fls
 /main.aux
 /main.fdb_latexmk
+/main.out
+/main.toc
+/indent.log
+/**/**.aux
