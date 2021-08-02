@@ -1,15 +1,19 @@
-\documentclass[a4paper,12pt]{book}
+\documentclass[a4paper,12pt,oneside]{book}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage[numbers]{natbib}
 \usepackage[bookmarks=true]{hyperref}
-\usepackage[left=3.00cm, right=2.00cm, top=3.00cm, bottom=3.00cm]{geometry}
+\usepackage{geometry}
 \bibliographystyle{IEEEtranN}
-\newenvironment{abstract}{}{}
-\usepackage{abstract}
+
+\usepackage{kantlipsum}
+
+ \geometry{
+ a4paper,
+ left=3.00cm, right=2.00cm, top=3.00cm, bottom=3.00cm }
 \hypersetup{
-    pdftitle={Software Requirement Specification},    % title
+    pdftitle={Tesi},    % title
     pdfauthor={Matteo Sirri},                     % author
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=blue,       % color of internal links
