@@ -1,0 +1,17 @@
+@startuml  three-tier
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+UpdateElementStyle(System, $fontColor="#282a3a", $borderColor="#9496a1",  $bgColor="#f3f4f8")
+UpdateRelStyle("#b3b5bd", "#b3b5bd")
+System(Controller, "Controller Layer","Ricezione e Gestione delle richieste da parte degli utenti")
+System(Service, "Service Layer","Gestione logica di buisiness")
+System(Data, "Data Access Layer", "Gestione logica di accesso ai dati")
+
+
+
+
+Rel(Controller, Service," Uses")
+Rel(Service, Data," Uses")
+
+HIDE_STEREOTYPE()
+@enduml
