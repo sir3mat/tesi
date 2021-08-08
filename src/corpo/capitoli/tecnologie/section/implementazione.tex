@@ -1,0 +1,40 @@
+\section{Implementazione}
+
+\par
+In questa sezione verranno descritti gli strumenti utilizzati per implementare i componenti che
+permettono alla piattaforma di erogare i propri servizi.
+
+\subsection{Ambiente di sviluppo}
+
+\par
+La scelta dell'ambiente di sviluppo, ovvero l'insieme di strumenti e tecnologie che permettono di sviluppare codice sorgente, è stata imposta dal know-how aziendale.
+\subsubsection{Node.js}
+
+\par
+Node.js è un ambiente runtime JavaScript open-source e multipiattaforma.
+\par
+Le caratteristiche fondamentali sono: l'esecuzione dell'engine V8, sviluppato da Google, che permette di compilare ed eseguire codice JavaScript al di fuori di browser web,
+l'uso di un insieme di primitive I/O asincrone di tipo non bloccante e l'esecuzione di applicazioni su un solo processo, senza generazione di nuovi thread per ogni richiesta.
+Pertanto quando si deve eseguire una operazione I/O, come una richiesta ad un web server, Node.js non blocca il thread, mettendo in attesa la CPU, ma, al contrario,
+la lascia libera di portare avanti altri compiti e si occuperà di ripristinare l'operazione non appena arriverà una risposta.
+\par
+Grazie a queste peculiarità è possibile realizzare applicazioni performanti in grado di gestire connessioni concorrenti con un singolo server, senza introdurre la complessità
+logica legata alla gestione della concorrenza fra thread.
+\par
+In questo ambiente è poi possibile utilizzare lo standard ECMAScript nelle sue varie versioni in modo flessibile in quanto è possibile modificare il set di funzionalità abilitate,
+potendo così adattarsi al meglio nei vari contesti di utilizzo.
+\par
+Infine, Node.js permette anche di aumentare la produttività di un team di sviluppo perchè fornisce agli sviluppatori front-end,
+che conoscono il linguaggio JavaScript, la possibilità di sviluppare codice \textit{server-side}; senza dover imparare un linguaggio del tutto nuovo.
+\par
+Grazie alle sue caratteristiche Node.js risulta essere un'ottimo strumento per lo sviluppo di servizi web.
+
+\subsection{Linguaggio}
+\subsubsection{Typescript}
+
+\subsection{Framework}
+\subsubsection{Nest.js}
+
+\subsection{Testing}
+\subsubsection{Jest}
+
