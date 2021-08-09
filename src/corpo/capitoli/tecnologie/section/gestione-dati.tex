@@ -1,0 +1,28 @@
+\section{Gestione dati}
+In questa sezione verranno descritti gli strumenti utilizzati per la gestione e l'aggiornamento delle informazioni
+necessare per il funzionamento della piattaforma.
+La motivazione principale che ha portato alla scelta delle tecnologie di seguito elencate è il \textit{know-how} aziendale.
+\subsection{Database}
+\subsubsection{MongoDB}
+MongoDB\cite{MongoDB} è un database management system (DBMS) che offre la possibilità di gestire database NoSQL
+\footnote{
+    dall'inglese \textit{Not only SQL}; non solo SQL.
+} basati sull'utilizzo di documenti flessibili, al posto delle tabelle, per processare e salvare dati in vario formato.\cite{IBM-MongoDB}
+L'unità fondamentale in un database basato su MongoDB sono i documenti. Questi rappresentano l'informazioni da memorizzare.
+Sono formattati in formato \textit{Binary JSON} (BSON) e possono includere varie tipologie di dati che vanno dai comuni
+valori numerici o stringhe sino ai più complessi oggetti innidati e liste.
+La particolarità di questi documenti è che non hanno uno schema rigido: possono subire delle modifiche nel tempo permettendo
+ai dati di adattarsi alla applicazione e non viceversa. Questo offre un notevole vantaggio per lo sviluppatore
+in quanto può strutturare i dati nella maniera più consona per facilitarne l'utilizzo.
+Questi documenti vengono poi raccolti in collezioni che vengono usate come archivi per documenti facenti parte di una stessa categoria di informazione.
+Tutti questi dati possono poi essere sottoposti a query e ad aggregazioni più o meno complesse fornendo una API in grado di fornire operazioni in modo molto efficente.
+
+MongoDB risulta essere anche molto performante grazie alla possibilità di immagazzinare documenti innestati, riducendo l'attività I/O del sistema DB,
+e all'utilizzo del meccanismo di indicizzazione che permette di effettuare query molto velocemente.
+
+Altre caratteristiche fondamentali di questa tecnologia sono l'alta disponibilità e la possiblità di scalare orizzontalmente il sistema.
+La prima è ottenuta con l'uso dei \textit{replica set}, che permettono di gestire database replicati, in modo da garantire ridondanza.
+La seconda è invece realizzabile con il metodo dello \textit{Sharding} distribuito che permette
+la distribuzione del carico computazionale, per la gestione delle richieste, su più server; fornendo così una esecuzione più efficente delle operazioni rispetto all'utilizzo di una solo server.
+
+
