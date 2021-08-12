@@ -1,0 +1,58 @@
+\section{Gestione codice condiviso}
+In questa sezione verranno presentate le tecnologie utilizzate per supportare le operazioni
+del team di sviluppo ed aumentarne la produttività.
+La motivazione principale che ha portato alla scelta delle tecnologie di seguito elencate è il \textit{know-how} aziendale.
+
+\subsection{Git}
+Git \cite{Git} è un sistema di controllo versione distribuito (DVCS), gratuito ed open-source.
+Nato nel 2005 grazie all'operato della comunità Linux e di Linus Torvalds, il creatore di Linux, è ad oggi uno strumento che
+permette ad un team di sviluppo di coopeare in modo facile, veloce ed efficente su grandi progetti.
+
+Essendo un sistema di controllo versione permette di registrare, nel tempo, i cambiamenti ad un file o ad una serie di file,
+così da poter richiamare una specifica versione in un secondo momento. \cite{GitPro}.
+Ciò offre numerosi vantaggi tra cui quello di poter ripristinare un file o un'intero progetto ad uno stato precedente ad una modifica,
+vedere chi e quando ha cambiato qualcosa e recuperare file cancellati.
+Inoltre offre un sistema di ramificazione (branching) per lo sviluppo non lineare.
+
+
+\subsection{Monorepo}
+Una \textit{monorepo}\cite{Google-Monorepo} (\textit{mono repository}) è una strategia di sviluppo software dove il codice
+relativo a vari progetti o applicazioni risiede in uno stesso luogo, solitamente una \textit{repository} condivisa
+gestita con un sistema di controllo versione.
+Si contrappone al modello di singola \textit{repository} per progetto.
+
+Di seguito alcuni vantaggi offerti dall'utilizzo della strategia monorepo.\cite{Monorepo}
+\begin{itemize}
+    \item Gestione semplificata delle dipendenze: le singole applicazioni condividono le stesse dipedenze.
+          Questo stimola la coesione negli sturmenti e librerie utilizzati e
+          aumenta la produttività degli sviluppatori.
+    \item Organizzazione semplificata: è possibile progettare una
+          gerarchia logica fra i progetti per renderli logicamente
+          relazionati anche all'interno della repository.
+    \item Semplificazione processi di release: esiste una pipeline condivisa per la build e il deploy del sistema.
+    \item Codivisione codice: è possibile utilizzare delle librerie interne per condividere codice fra le varie applicazioni riducendo
+          così la duplicazione e favorendo la creazione di codice migliore.
+    \item Standard e convenzioni: è possibile introdurre un'utilizzo coeso relativo alle convenzioni di sviluppo e all'utilizzo delle tecnologie
+          usate per testing, debug e build dei progetti. Queste permette di creare codice consistente e di qualità.
+
+\end{itemize}
+L'utilizzo di una monorepo permette quindi di creare piattaforme complesse, composte da applicazioni e microservizi, in modo
+coeso, dal punto di vista degli strumenti e tecnologie usate, e permettendo agli sviluppatori di avere le conoscenze adatte per lavorare
+in modo efficente ed efficace ai vari progetti della organizzazione.
+Nonostante ciò l'utilizzo di questa strategia introduce un certo livello di rigidità nella gestione delle applicazioni e un
+grado di complessità, proporzionale alle dimensioni della monorepo, nell'introduzione di nuovi membri nel team di sviluppo.
+
+Nello sviluppo della piattaforma è stato deciso di utilizzare questa strategia e ciò ha permesso
+al team di sviluppo di operare in modo efficente e coeso.
+
+\subsubsection{Nx}
+Nx \cite{Nx} è uno strumento open source, creato dal team Nrwl \cite{Nrwl}, che permette ad una organizzazione
+di gestire una monorepo.
+Il suo funzionamento è basato sulla CLI di Angular, un framework per lo sviluppo di applicazioni front-end,
+ed è composto da un insieme di strumenti che permettono di gestire in modo flessibile una monorepo per progetti basati
+su Node.js, React o Angular. Alcune delle funzionalità offerte sono la generazione automatica della gerarchia di file e cartelle
+per generare una nuova applicazione o libreria, possibilità di eseguire script in un contesto globale o relegato alle singole applicazioni
+e meccanismi di ottimizzazione per le fasi di build e test grazie all'utilizzo dei un meccanismo di caching.
+
+Nello sviluppo della piattaforma è stato decido di introdurre questo strumento in quanto permette di semplificare
+notevolmente la fase di design della monorepo stessa.
