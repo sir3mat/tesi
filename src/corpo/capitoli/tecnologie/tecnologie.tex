@@ -2,20 +2,24 @@
 
 \input{src/corpo/capitoli/tecnologie/section/implementazione.tex}
 \input{src/corpo/capitoli/tecnologie/section/gestione-dati.tex}
+\newpage
 \input{src/corpo/capitoli/tecnologie/section/servizi-esterni.tex}
 
 
-
-
-\section{Protocolli comunicazione}
-\subsection{HTTP}
-testo
-\subsection{RabbitMQ}
-testo
-
 \section{Sicurezza}
+In questa sezione verranno descritti i meccanismi di autenticazione e autorizzazione scelti per
+garantire un adeguato livello di sicurezza agli utenti.
 \subsection{Autenticazione}
-testo
+L'autenticazione è un metodo che permette di identificare gli utenti sulla base di un set di credenziali e 
+verificare che questi forniscano le giuste informazioni per accedere alla applicazione.
+
+L'implementazione presente all'interno della piattaforma si basa su una coppia di credenziali: email e password.
+Per garantire una archiviazione sicura delle password è stato deciso di applicare una policy basata sull'uso di \textit{hash} e \textit{salt}.
+
+https://auth0.com/blog/hashing-passwords-one-way-road-to-security/#Limitations-of-Hash-Functions
+https://www.ilpost.it/mauriziocodogno/2013/03/06/hash-e-salting/
+https://culttt.com/2013/01/21/why-do-you-need-to-salt-and-hash-passwords/
+
 \subsection{Autorizzazione}
 testo
 \subsubsection{JWT}
