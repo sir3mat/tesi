@@ -1,0 +1,28 @@
+\section{Integrazione e rilascio del software}
+In questa sezione sono descritte le tecnologie utilizzate nelle fasi di integrazione e rilascio del software.
+
+\subsection{Docker}
+Docker \cite{Docker} è una tecnologia open source per creare, distribuire e gestire applicazioni sottoforma di \textit{container}.
+Un container Docker è un'ambiente isolato in cui può essere messa in esecuzione una applicazione.
+Più nello specifico si crea un container basato su Linux in cui viene caricata un'immagine di una applicazione con le relative dipendenze.
+
+Vantaggio offerto dalla piattaforma Docker è il fatto che questi container sono isolati li uni dagli altri
+e ciò permette di poterli eseguire in sicurezza e indipendentemente.
+Altra nota positiva è la leggerezza. Infatti i container Docker, a differenza delle macchine virtuali, non necessitano
+di un hypervisor ma vengono eseguiti direttamente dal kernel della macchina host.
+
+L'utilizzo dei container permette poi di disaccopiare le fasi di rilascio e deployment delle applicazioni ed offre la garanzia
+di avere un'ambiente in cui si ha la certezza che il comportamento della applicazione sarà quello previsto. Questo risulta
+vantaggioso anche per la produttività degli sviluppatori che possono così condividere
+il proprio lavoro più facilmente.
+
+Questa tecnologia è stata usata nello sviluppo della piattaforma per supportare le operazioni di integrazione e distribuzione.
+Viene inoltre utilizzato per effettuare il deployment, ovvero il rilascio dell'applicazione al reparto di produzione.
+
+\subsection{Jenkins}
+Jenkis \cite{Jenkins} è uno strumento open source che fa parte della categoria degli \textit{automation server}, ovvero applicazioni server utilizzate
+per automatizzare le task relative alle fasi di build, test, rilascio e deploy del software.
+
+Basa il suo funzionamento su una pipeline, ovvero un insieme di step, detti \textit{stage}, da eseguire in sequenza per portare a termine un processo.
+Ogni step potrà contenere a sua volte delle istruzioni, detti \textit{jobs}, da eseguire per portare a termine un dato compito quale potrebbe essere la build, i test o il deployment.
+L'esecuzione della pipeline può avvenire in varie modalità pianificata o utilizzando dei trigger, come ad esempio il commit su una repository o il fallimento di un test.
