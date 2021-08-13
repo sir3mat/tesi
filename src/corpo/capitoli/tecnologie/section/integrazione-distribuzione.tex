@@ -1,9 +1,9 @@
 \section{Integrazione e rilascio del software}
-In questa sezione sono descritte le tecnologie utilizzate nelle fasi di integrazione e rilascio del software.
+In questa sezione sono descritte le tecnologie utilizzate nelle fasi d'integrazione e rilascio del software.
 
 \subsection{Docker}
-Docker \cite{Docker} è una tecnologia open source per creare, distribuire e gestire applicazioni sottoforma di \textit{container}.
-Un container Docker è un'ambiente isolato in cui può essere messa in esecuzione una applicazione.
+Docker \cite{Docker} è una tecnologia open source per creare, distribuire e gestire applicazioni sotto forma di \textit{container}.
+Un container Docker è un ambiente isolato in cui può essere messa in esecuzione una applicazione.
 Più nello specifico si crea un container basato su Linux in cui viene caricata un'immagine di una applicazione con le relative dipendenze.
 
 Vantaggio offerto dalla piattaforma Docker è il fatto che questi container sono isolati li uni dagli altri
@@ -11,12 +11,12 @@ e ciò permette di poterli eseguire in sicurezza e indipendentemente.
 Altra nota positiva è la leggerezza. Infatti i container Docker, a differenza delle macchine virtuali, non necessitano
 di un hypervisor ma vengono eseguiti direttamente dal kernel della macchina host.
 
-L'utilizzo dei container permette poi di disaccopiare le fasi di rilascio e deployment delle applicazioni ed offre la garanzia
-di avere un'ambiente in cui si ha la certezza che il comportamento della applicazione sarà quello previsto. Questo risulta
+L'utilizzo dei container permette poi di disaccoppiare le fasi di rilascio e deployment delle applicazioni e offre la garanzia
+di avere un ambiente in cui si ha la certezza che il comportamento della applicazione sarà quello previsto. Questo risulta
 vantaggioso anche per la produttività degli sviluppatori che possono così condividere
 il proprio lavoro più facilmente.
 
-Questa tecnologia è stata usata nello sviluppo della piattaforma per supportare le operazioni di integrazione e distribuzione.
+Questa tecnologia è stata usata nello sviluppo della piattaforma per supportare le operazioni d'integrazione e distribuzione.
 Viene inoltre utilizzato per effettuare il deployment, ovvero il rilascio dell'applicazione al reparto di produzione.
 
 \subsection{Jenkins}

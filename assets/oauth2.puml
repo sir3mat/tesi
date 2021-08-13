@@ -1,0 +1,27 @@
+@startuml  oauth2
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_TOP_DOWN()
+UpdateElementStyle(System, $fontColor="#282a3a", $borderColor="#9496a1",  $bgColor="#f3f4f8")
+UpdateRelStyle("#b3b5bd", "#b3b5bd")
+
+AddRelTag("dashedLine", $lineStyle = DashedLine())
+
+System(Client, "Client", "")
+System(ResourceOwner, "Resource Owner", "")
+System(AuthorizationServer, "Authorization Server", "")
+System(ResourceServer, "Resource Server", "")
+
+Rel(Client, ResourceOwner, "(1) Richiesta autorizzazione", $tags="dashedLine")
+Rel(ResourceOwner, Client, "(2) Authorization Grant", $tags="dashedLine")
+
+Rel(Client, AuthorizationServer, "(3) Authorization Grant", $tags="dashedLine")
+Rel(AuthorizationServer, Client, "(4) Access Token", $tags="dashedLine")
+
+Rel(Client, ResourceServer,"(5) Access Token", $tags="dashedLine")
+Rel(ResourceServer, Client,"(6) Risorsa protetta", $tags="dashedLine")
+
+HIDE_STEREOTYPE()
+@enduml
+
+

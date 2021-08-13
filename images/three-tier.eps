@@ -9,10 +9,13 @@
 gsave
 0 422 translate
 .01 -.01 scale
-/simplerect {
-newpath moveto 1 index 0 rlineto
-0 exch rlineto
-neg 0 rlineto
+/roundrect {
+newpath
+dup 3 index add 2 index 2 index add 2 index 180 270 arc
+2 index 5 index add 1 index sub 2 index 2 index add 2 index 270 0 arc
+2 index 5 index add 1 index sub 2 index 5 index add 2 index sub 2 index 0 90 arc
+dup 3 index add 2 index 5 index add 2 index sub 2 index 90 180 arc
+pop pop pop pop pop 
 } def
 /rquadto {
 3 index 3 index 4 2 roll rcurveto
@@ -987,11 +990,11 @@ closepath
 -104 0 rlineto
 } def
 0.95 0.96 0.97 setrgbcolor
-20300 9295 1150 700 simplerect
+20300 9295 1150 700 1250 roundrect
 closepath eofill
 150 setlinewidth
 0.58 0.59 0.63 setrgbcolor
-20300 9295 1150 700 simplerect
+20300 9295 1150 700 1250 roundrect
 closepath stroke
 0 setlinewidth
 [] 0 setdash
@@ -1522,11 +1525,11 @@ P$g
 P$15
 fill
 0.95 0.96 0.97 setrgbcolor
-20000 7534 1300 17700 simplerect
+20000 7534 1300 17700 1250 roundrect
 closepath eofill
 150 setlinewidth
 0.58 0.59 0.63 setrgbcolor
-20000 7534 1300 17700 simplerect
+20000 7534 1300 17700 1250 roundrect
 closepath stroke
 0 setlinewidth
 [] 0 setdash
@@ -1826,11 +1829,11 @@ newpath
 P$1d
 fill
 0.95 0.96 0.97 setrgbcolor
-21200 9295 700 32900 simplerect
+21200 9295 700 32900 1250 roundrect
 closepath eofill
 150 setlinewidth
 0.58 0.59 0.63 setrgbcolor
-21200 9295 700 32900 simplerect
+21200 9295 700 32900 1250 roundrect
 closepath stroke
 0 setlinewidth
 [] 0 setdash
