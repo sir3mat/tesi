@@ -83,3 +83,10 @@ registry
 package
 nest
 application
+redirect
+reindirizzamento
+attravero
+flow
+oauth
+facebook
+google

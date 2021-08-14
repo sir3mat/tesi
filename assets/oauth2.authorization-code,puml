@@ -1,11 +1,22 @@
-@startuml  oauth2
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+@startuml  oauth2-authorization-code
 
-LAYOUT_TOP_DOWN()
 UpdateElementStyle(System, $fontColor="#282a3a", $borderColor="#9496a1",  $bgColor="#f3f4f8")
 UpdateRelStyle("#b3b5bd", "#b3b5bd")
 
 AddRelTag("dashedLine", $lineStyle = DashedLine())
+
+
+partecipant Client as Client
+pertecipant Resource Owner as ResourceOwner
+partecipant Authorization Server as AuthorizationServer
+partecipant Resource Server as ResourceServer
+
+ResourceOwner -> Client : Richiesta di acceso 
+Client -> AuthorizationServer 
+AuthorizationServer -> ResourceOwner
+ResourceOwner -> AuthorizationServer
+AuthorizationServer -> Applicazione Client
+
 
 System(Client, "Client", "")
 System(ResourceOwner, "Resource Owner", "")

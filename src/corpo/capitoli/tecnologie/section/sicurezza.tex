@@ -35,17 +35,20 @@ Gli attori coinvolti nell'architettura del framework sono:
     \item \textit{Authorization Server}: è il server o il modulo applicativo che rilascia i token di accesso (detti \textit{access token}) al client dopo aver
           autenticato con successo il \textit{resource owner} e aver ottenuto l'autorizzazione.
     \item  \textit{Client}: è l'applicazione che richiede l'accesso alla risorsa. Può essere sia una applicazione \textit{client-side} che \textit{server-side}.
+          Deve registrarsi presso l'\textit{authorization server} per ottenere delle credenziali: \textit{client secret} e \textit{client identifier}.
 \end{itemize}
 
 Altri elementi significativi sono l'\textit{access token} e l'\textit{authorization grant}.
+
 Il primo è una stringa che rappresenta le credenziali necessarie per ottenere l'accesso alla risorsa protetta sul resource server.
 Pratica comune è utilizzare il formato Json Web Token\cite{rfc7519} (JWT) che permette di codificare un oggetto JSON in un token
 che può essere cifrato e firmato con vari algoritmi (HMAC, RSA, ECDSA). Questo permette di trasmettere in modo sicuro e compatto delle informazioni
 fra due interlocutori garantendone integrità e confidenzialità.
+
 L'\textit{authorization grant} rappresenta le credenziali che verificano l'autorizzazione fornita dal \textit{resource owner} e usate dal \textit{client} per ottenere un \textit{access token}.
 Il framework ne definisce quattro tipologie: \textit{authorization code}, \textit{implicit}, \textit{resource owner password credentials} e \textit{client credentials}.
 
-Il processo di base definito dal protocollo per autenticare il client e fornire un \textit{access token} è il seguente:
+Il processo di base definito dal protocollo per autenticare il \textit{client} e fornire un \textit{access token} è il seguente:
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{oauth.png}
@@ -56,14 +59,31 @@ Il processo di base definito dal protocollo per autenticare il client e fornire 
 \begin{enumerate}
     \item Il \textit{client} richiede l'autorizzazione al \textit{resource owner}.
     \item Il \textit{client} riceve un \textit{authorization grant}, ovvero delle credenziali che rappresentano l'autorizzazione del \textit{resource owner}.
-    \item Il \textit{client} richiede un \textit{access token} autenticandosi con l' authorization server e fornendo l'\textit{authorization grant}.
+    \item Il \textit{client} richiede un \textit{access token} autenticandosi con l'\textit{authorization server} e fornendo l'\textit{authorization grant}.
     \item L'\textit{authorization server} autentica il client validando l'\textit{authorization grant}. Se è valido fornisce un \textit{access token}.
     \item Il \textit{client} richiede l'accesso alla risorsa protetta presente nel \textit{resource server} e si autentica presentando l'\textit{access token}.
-    \item Il resource server valida l'\textit{access token} e, se è valido, gestisce la richiesta.
+    \item Il \textit{resource server} valida l'\textit{access token} e, se è valido, gestisce la richiesta.
 \end{enumerate}
 
+Nella piattaforma è stato deciso di utilizzare l'\textit{authorization grant} di tipo \textit{authorization code} per supportare le procedure
+di registrazione degli utenti attraverso i provider di terze parti (Google e Facebook).
 
+Questo meccanismo disaccoppia completamente le credenziali utente dall'autorizzazione per accedere.
 
-nella piattaforma è stato usato quello X per fare Y.
-Inoltre viene utilizzato il meccanismo del refresh token e dell'access token per questi motivi.
+In particolare si basa sull'introduzione di un nuovo elemento chiamato \textit{authorization code}
+che viene ottenuto grazie all'\textit{authorization server}, che si comporta come intermediario fra il  \textit{client} e il \textit{resource owner}.
+Invece di richiedere l'autorizzazione al \textit{resource owner}, il \textit{client} indirizza quest'ultimo verso un \textit{authorization server} che richiede al \textit{resource owner} di autenticarsi.
+Se l'autenticazione ha successo l'\textit{authorization server} crea un \textit{authorization code} e reindirizza il \textit{resource owner} al \textit{client}.
+Questo procede con l'invio di una richiesta di autorizzazione, diretta all'\textit{authorization server}, con la quale può ottenere l'\textit{access token}.
+A questo punto il \textit{client} effettuerà la richiesta per ottenere la risorsa protetta e ritornerà queste informazioni al \textit{resource owner}.
+
+I benefici di questa tipologia di \textit{authorization grant} sono dovuti al fatto che il \textit{resource owner} si autentica direttamente con il \textit{authorization server}
+e di conseguenza le sue credenziali non vengono mai condivise con il \textit{client}.
+
+[schemino oauth flow generale o esempio con facebook/google]
+
+Nella piattaforma è stato poi deciso di sfruttare gli \textit{access token} anche per gestire le autorizzazioni
+degli utenti interni alla piattaforma. Nello specifico vengono usati insieme a dei \textit{refresh token} che permettono
+di ottenere un nuovo \textit{access token} quando questo scade. Questo evita di dover richiedere all'utente di autenticarsi
+e ottenere l'autorizzazione.
 
