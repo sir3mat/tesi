@@ -1,12 +1,9 @@
-\section{Sicurezza}
-In questa sezione verranno descritti i meccanismi di autenticazione e autorizzazione scelti per
-garantire un adeguato livello di sicurezza agli utenti.
-
 \subsection{Autenticazione}
 L'autenticazione è un metodo che permette l'identificazione degli utenti sulla base di un set di credenziali e
 verificare che questi forniscano le giuste informazioni per accedere alla applicazione.
 
 L'implementazione presente all'interno della piattaforma si basa su una coppia di credenziali: email e password.
+
 Per garantire una archiviazione sicura delle password è stato deciso di applicare una policy basata sull'uso di \textit{hash} e \textit{salt}.
 
 
@@ -86,4 +83,3 @@ Nella piattaforma è stato poi deciso di sfruttare gli \textit{access token} anc
 degli utenti interni alla piattaforma. Nello specifico vengono usati insieme a dei \textit{refresh token} che permettono
 di ottenere un nuovo \textit{access token} quando questo scade. Questo evita di dover richiedere all'utente di autenticarsi
 e ottenere l'autorizzazione.
-

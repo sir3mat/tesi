@@ -70,18 +70,6 @@ AWS. Sito web aws-ses. Visitato il 08/2021. [Online]. Available:
   \url{https://aws.amazon.com/it/ses/}
 \BIBentrySTDinterwordspacing
 
-\bibitem[Hardt(2012)]{rfc6749}
-\BIBentryALTinterwordspacing
-D.~Hardt, ``{The OAuth 2.0 Authorization Framework},'' RFC 6749, Oct. 2012.
-  [Online]. Available: \url{https://rfc-editor.org/rfc/rfc6749.html}
-\BIBentrySTDinterwordspacing
-
-\bibitem[Jones et~al.(2015)Jones, Bradley, and Sakimura]{rfc7519}
-\BIBentryALTinterwordspacing
-M.~Jones, J.~Bradley, and N.~Sakimura, ``{JSON Web Token (JWT)},'' RFC 7519,
-  May 2015. [Online]. Available: \url{https://rfc-editor.org/rfc/rfc7519.txt}
-\BIBentrySTDinterwordspacing
-
 \bibitem[Git()]{Git}
 \BIBentryALTinterwordspacing
 Git. Sito web git. Visitato il 08/2021. [Online]. Available:
@@ -129,6 +117,18 @@ Docker. Sito web docker. Visitato il 08/2021. [Online]. Available:
 \BIBentryALTinterwordspacing
 Jenkins. Sito web jenkins. Visitato il 08/2021. [Online]. Available:
   \url{https://www.jenkins.io}
+\BIBentrySTDinterwordspacing
+
+\bibitem[Hardt(2012)]{rfc6749}
+\BIBentryALTinterwordspacing
+D.~Hardt, ``{The OAuth 2.0 Authorization Framework},'' RFC 6749, Oct. 2012.
+  [Online]. Available: \url{https://rfc-editor.org/rfc/rfc6749.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem[Jones et~al.(2015)Jones, Bradley, and Sakimura]{rfc7519}
+\BIBentryALTinterwordspacing
+M.~Jones, J.~Bradley, and N.~Sakimura, ``{JSON Web Token (JWT)},'' RFC 7519,
+  May 2015. [Online]. Available: \url{https://rfc-editor.org/rfc/rfc7519.txt}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}
