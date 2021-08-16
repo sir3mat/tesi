@@ -56,22 +56,23 @@ server web veloci e flessibili). Grazie a questo è inoltre possibile usufruire 
 vantaggi in termini di riusabilità e flessibilità.
 
 Altro aspetto significativo di questo framework è che guida lo sviluppatore a realizzare una applicazione con una architettura \textit{three-tier} ("a tre strati"),
-ovvero suddividendo gli elementi principali in tre strati dedicati alla gestione delle richieste dell'utente, alla gestione della logica funzionale e alla gestione dei dati.
-\begin{figure}[h]
+ovvero suddividendo gli elementi principali in tre strati dedicati alla gestione delle richieste dell'utente, alla gestione della logica funzionale e alla gestione dei dati (vedi Figura \ref{fig:three-tier}).
+
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.35\textwidth]{three-tier.eps}
     \caption{Schema riassuntivo della architettura \textit{three-tier}}
     \label{fig:three-tier}
 \end{figure}
-\newpage
 
 Questa architettura viene supportata grazie a dei componenti di base, offerti dal framework stesso, che possono
 essere estesi dallo sviluppatore in base alle proprie esigenze.
-Importante caratteristica di tutti questi componenti è che fanno largo uso della
+Nota significativa riguardo questi componenti è che fanno largo uso della
 \textit{Dependency Injection}\footnote{
     La \textit{Dependency Injection} è un meccanismo che permette di applicare
     l'inversione del controllo a un componente software. In generale permette a una classe di non dover configurare
-    le proprie dipendenze in modo statico perché vengono configurate dall'esterno. Ciò offre grossi vantaggi in termini di riusabilità e rende la fase di test molto più semplice.}.
+    le proprie dipendenze in modo statico perché vengono configurate dall'esterno. Ciò offre grossi vantaggi in termini di riusabilità e rende la fase di test molto più semplice.},
+uno dei meccanismi alla base del framework.
 
 Pertanto l'utilizzo di Nest offre agli sviluppatori utili strumenti per velocizzare lo sviluppo di una web API prestando attenzione
 alle performance e alla architettura software del prodotto da realizzare risultando un'ottima scelta per la realizzazione si servizi web.
