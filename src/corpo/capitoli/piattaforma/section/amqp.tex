@@ -1,7 +1,50 @@
 \section{Message broker}
 \subsection{Descrizione generale}
+Un \textit{message broker} è un software che permette di fare interagire varie applicazioni in
+un contesto distribuito. Il suo compito principale è permettere a servizi eterogenei di comunicare con successo.
+Viene solitamente utilizzato per fare comunicare microservizi in una architettura distribuita
+e per operazioni che richiedono molto tempo per ridurre il carico di lavoro sul web server.
+
+Nel dettaglio un \textit{message broker} è un software che implementa il paradigma \textit{Message Oriented Middleware} (MOM) e offre servizi per distribuire i messaggi (routing e politiche di recapito).
+Ciò significa che verrà usato come \textit{gateway} di livello applicativo in un sistema in cui le applicazioni comunicano utilizzando messaggi
+che vengono inseriti in code e dove vengono utilizzati dei nodi di smistamento per distribuirli verso la destinazione.
+Questa tipologia di sistemi è detta \textit{message-queuing system}\cite{MessageBroker-Book} in cui è garantita la persistenza
+grazie all'utilizzo delle code e la possibilità di creare topologie punto-punto o punto-multipunto con in nodi di smistamento.
+In particolare avremo che il \textit{message broker} riceve dei messaggi da applicazioni dette \textit{publishers} e li indirizzerà verso applicazioni dette \textit{consumers} che processeranno questi messaggi.
+
+Nella piattaforma è stato deciso di utilizzare un broker RabbitMQ\cite{rabbitMQ} usando come protocollo di messaggistica l'\textit{Advanced message Queuing Protocol 0-9-1}\cite{amqp},
+per permettere alla API d'interagire con il microservizio del Mailer.
+
+\subsection{Advanced message queing protocol 0-9-1}
+L'AMQP 0-9-1 è un protocollo di livello applicativo che permette a delle applicazioni client d'interagire con i \textit{message broker}.
+Per rendere completa questa interazione è necessario che fra le parti venga specificata la sintassi da usare e la semantica dei messaggi per i servizi offerti dal broker.
+Il protocollo AMQP li definisce entrambi:
+\begin{itemize}
+    \item \textit{Advanced Message Queuing protocol} (AMQP): è il protocollo che definisce la sintassi che permette ai client d'interagire con il broker.
+    \item \textit{Advanced Message Queuing model} (AMQ model): definisce un insieme di elementi e standard che devono essere implementati dal broker in modo tale da supportare le interazioni fra \textit{publishers} e \textit{consumers}.
+\end{itemize}
+
+Il modello AMQ definisce tre tipologie di componenti, che vengono poi connessi e processati dal broker per erogare i servizi richiesti.
+Nel dettaglio:
+\begin{itemize}
+    \item \textit{Exchange}: componente che indirizza i messaggi alle code
+    \item \textit{Message queue} ("coda di messaggi"): una struttura dati che memorizza i messaggi
+    \item \textit{Binding}: regola che definisce la relazione tra l'\textit{exchange} e la coda.
+\end{itemize}
+
+Il protocollo AMQP è un protocollo di livello applicativo diviso in due layer:
+\begin{itemize}
+    \item \textit{Functional Layer}: definisce i comandi che permettono alle applicazioni di svolgere operazioni sul broker
+    \item \textit{Transport Layer}:  gestisce il multiplexing del canale, il framing, la codifica e il trasporto dei messaggi. Permette anche la gestione degli errori, la comunicazione asincrona e funzionalità di heartbeat.
+\end{itemize}
+
+
+
+
+
+
 
 \subsection{Principi di design}
-testo
+[come è stato progettato. Queue work. Si interfaccia con api e mailer. Schemino per work queue e schemino per architettura.]
 
 
