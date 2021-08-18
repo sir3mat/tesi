@@ -158,3 +158,15 @@ framing
 heartbeat
 work
 mailer
+identifier
+Enterprise
+Patterns
+Designing
+Building
+Deploying
+Messaging
+Solutions
+Competing
+consumer
+Robin
+acknowledgment

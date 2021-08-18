@@ -20,8 +20,14 @@ L'AMQP 0-9-1 è un protocollo di livello applicativo che permette a delle applic
 Per rendere completa questa interazione è necessario che fra le parti venga specificata la sintassi da usare e la semantica dei messaggi per i servizi offerti dal broker.
 Il protocollo AMQP li definisce entrambi:
 \begin{itemize}
-    \item \textit{Advanced Message Queuing protocol} (AMQP): è il protocollo che definisce la sintassi che permette ai client d'interagire con il broker.
+    \item \textit{Advanced Message Queuing protocol} (AMQP): è il protocollo che definisce la sintassi dei messaggi che permettono ai client d'interagire con il broker.
     \item \textit{Advanced Message Queuing model} (AMQ model): definisce un insieme di elementi e standard che devono essere implementati dal broker in modo tale da supportare le interazioni fra \textit{publishers} e \textit{consumers}.
+\end{itemize}
+
+Il protocollo AMQP è un protocollo di livello applicativo diviso in due layer:
+\begin{itemize}
+    \item \textit{Functional Layer}: definisce i comandi che permettono alle applicazioni di svolgere operazioni sul broker
+    \item \textit{Transport Layer}:  gestisce il multiplexing del canale, il framing, la codifica e il trasporto dei messaggi. Permette anche la gestione degli errori, la comunicazione asincrona e funzionalità di heartbeat.
 \end{itemize}
 
 Il modello AMQ definisce tre tipologie di componenti, che vengono poi connessi e processati dal broker per erogare i servizi richiesti.
@@ -32,19 +38,28 @@ Nel dettaglio:
     \item \textit{Binding}: regola che definisce la relazione tra l'\textit{exchange} e la coda.
 \end{itemize}
 
-Il protocollo AMQP è un protocollo di livello applicativo diviso in due layer:
-\begin{itemize}
-    \item \textit{Functional Layer}: definisce i comandi che permettono alle applicazioni di svolgere operazioni sul broker
-    \item \textit{Transport Layer}:  gestisce il multiplexing del canale, il framing, la codifica e il trasporto dei messaggi. Permette anche la gestione degli errori, la comunicazione asincrona e funzionalità di heartbeat.
-\end{itemize}
-
-
-
-
-
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{amqModel.png}
+    \caption{Modello AMQ}
+    \label{fig:AmqModel}
+\end{figure}
 
 
 \subsection{Principi di design}
-[come è stato progettato. Queue work. Si interfaccia con api e mailer. Schemino per work queue e schemino per architettura.]
+Nella piattaforma è stato utilizzato un broker RabbitMQ per poter fare interagire la API e il Mailer
+andando così a disaccoppiare la fase di gestione della richiesta utente dalla fase di renderizzazione e invio email al destinatario.
+Vista la possibilità di dover gestire numerose email contemporaneamente, è stato deciso di utilizzare il modello a \textit{consumers} concorrenti (Competing Consumers Pattern)\cite{CompetingConsumers}.
+Questo prevede la creazione di molteplici consumers collegati a uno stesso canale in modo tale che questi possano processare più messaggi contemporaneamente.
+Quando un messaggio arriva sul canale, uno qualsiasi dei consumers potrebbe riceverlo e processarlo andando così a competere l'uno con l'altro.
+
+Per implementare questo modello si è deciso di utilizzare i seguenti elementi:
+\begin{itemize}
+    \item \textit{Task Queue}: coda usata per distribuire su più consumers varie operazioni che richiedono molto tempo.
+    \item Distribuzione \textit{Round Robin}: il broker manderà un messaggio a ogni \textit{consumer} in maniera sequenziale (ogni \textit{consumer} riceverà in media lo stesso numero di messaggi). Questo garantisce che tutti i messaggi verranno recapitati almeno una volta.
+    \item \textit{Message acknowledgment} (ACK): vengono utilizzati degli ACK per confermare la corretta elaborazione di un messaggio da parte di un \textit{consumer}. Se l'ACK non viene inviato al broker, il messaggio verrà rimesso in coda.
+\end{itemize}
+Grazie a questi elementi è stato possibile creare una architettura di messaggistica in grado di scalare orizzontalmente con facilità (aggiungendo dei consumers), disaccoppiata, affidabile e resiliente.
+
 
 
