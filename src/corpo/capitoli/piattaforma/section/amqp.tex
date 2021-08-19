@@ -2,8 +2,8 @@
 \subsection{Descrizione generale}
 Un \textit{message broker} è un software che permette di fare interagire varie applicazioni in
 un contesto distribuito. Il suo compito principale è permettere a servizi eterogenei di comunicare con successo.
-Viene solitamente utilizzato per fare comunicare microservizi in una architettura distribuita
-e per operazioni che richiedono molto tempo per ridurre il carico di lavoro sul web server.
+Viene solitamente utilizzato per la comunicazione fra microservizi in una architettura distribuita
+e per operazioni che richiedono molto tempo in modo da ridurre il carico di lavoro sul web server.
 
 Nel dettaglio un \textit{message broker} è un software che implementa il paradigma \textit{Message Oriented Middleware} (MOM) e offre servizi per distribuire i messaggi (routing e politiche di recapito).
 Ciò significa che verrà usato come \textit{gateway} di livello applicativo in un sistema in cui le applicazioni comunicano utilizzando messaggi
@@ -12,10 +12,10 @@ Questa tipologia di sistemi è detta \textit{message-queuing system}\cite{Messag
 grazie all'utilizzo delle code e la possibilità di creare topologie punto-punto o punto-multipunto con in nodi di smistamento.
 In particolare avremo che il \textit{message broker} riceve dei messaggi da applicazioni dette \textit{publishers} e li indirizzerà verso applicazioni dette \textit{consumers} che processeranno questi messaggi.
 
-Nella piattaforma è stato deciso di utilizzare un broker RabbitMQ\cite{rabbitMQ} usando come protocollo di messaggistica l'\textit{Advanced message Queuing Protocol 0-9-1}\cite{amqp},
+Nella piattaforma è stato deciso di utilizzare un broker RabbitMQ\cite{rabbitMQ} usando come protocollo di messaggistica l'\textit{Advanced message Queuing Protocol 0-9-1}(AMQP)\cite{amqp},
 per permettere alla API d'interagire con il microservizio del Mailer.
 
-\subsection{Advanced message queing protocol 0-9-1}
+\subsection{Protocollo di messaggistica}
 L'AMQP 0-9-1 è un protocollo di livello applicativo che permette a delle applicazioni client d'interagire con i \textit{message broker}.
 Per rendere completa questa interazione è necessario che fra le parti venga specificata la sintassi da usare e la semantica dei messaggi per i servizi offerti dal broker.
 Il protocollo AMQP li definisce entrambi:
@@ -47,8 +47,8 @@ Nel dettaglio:
 
 
 \subsection{Principi di design}
-Nella piattaforma è stato utilizzato un broker RabbitMQ per poter fare interagire la API e il Mailer
-andando così a disaccoppiare la fase di gestione della richiesta utente dalla fase di renderizzazione e invio email al destinatario.
+Nella piattaforma è stato utilizzato un broker RabbitMQ per supportare l'interazione tra API e Mailer e
+disaccoppiare la fase di gestione della richiesta utente dalla fase di renderizzazione e invio email al destinatario.
 Vista la possibilità di dover gestire numerose email contemporaneamente, è stato deciso di utilizzare il modello a \textit{consumers} concorrenti (Competing Consumers Pattern)\cite{CompetingConsumers}.
 Questo prevede la creazione di molteplici consumers collegati a uno stesso canale in modo tale che questi possano processare più messaggi contemporaneamente.
 Quando un messaggio arriva sul canale, uno qualsiasi dei consumers potrebbe riceverlo e processarlo andando così a competere l'uno con l'altro.

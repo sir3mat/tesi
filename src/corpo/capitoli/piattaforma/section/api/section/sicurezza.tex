@@ -2,7 +2,7 @@
 L'autenticazione è un metodo che permette l'identificazione degli utenti sulla base di un set di credenziali e
 verificare che questi forniscano le giuste informazioni per accedere alla applicazione.
 
-L'implementazione presente all'interno della piattaforma si basa su una coppia di credenziali: email e password.
+L'implementazione presente all'interno della API web si basa su una coppia di credenziali: email e password.
 
 Per garantire una archiviazione sicura delle password è stato deciso di applicare una policy basata sull'uso di \textit{hash} e \textit{salt}.
 
@@ -17,12 +17,12 @@ L'autorizzazione è un metodo che permette di garantire la riservatezza e la dis
 Attraverso l'implementazione di policy è infatti possibile definire dei protocolli che permettono di restringere l'accesso alle risorse,
 rendendole disponibili solo agli utenti autorizzati.
 
-Le policy definite all'interno della piattaforma si basano sul protocollo di autorizzazione OAuth 2.0 \cite{rfc6749} e sull'utilizzo di un
+Le policy definite all'interno della API web si basano sul protocollo di autorizzazione OAuth 2.0 \cite{rfc6749} e sull'utilizzo di un
 modello di controllo sugli accessi basato sui ruoli dei singoli utenti.
 
 
 \subsubsection{OAuth 2.0}
-OAuth 2.0 \cite{rfc6749} è un framework autorizzativo standard per applicazioni Web.
+OAuth 2.0 è un framework autorizzativo standard per applicazioni Web.
 Scopo del framework è delegare a un'utenza qualsiasi l'accesso limitato a una risorsa di proprietà di un'entità differente (detta \textit{resource owner}).
 
 Gli attori coinvolti nell'architettura del framework sono:
@@ -81,5 +81,5 @@ e di conseguenza le sue credenziali non vengono mai condivise con il \textit{cli
 
 Nella piattaforma è stato poi deciso di sfruttare gli \textit{access token} anche per gestire le autorizzazioni
 degli utenti interni alla piattaforma. Nello specifico vengono usati insieme a dei \textit{refresh token} che permettono
-di ottenere un nuovo \textit{access token} quando questo scade. Questo evita di dover richiedere all'utente di autenticarsi
-e ottenere l'autorizzazione.
+di ottenere un nuovo \textit{access token} quando quest'ultimo scade. Questo evita di dover richiedere all'utente di autenticarsi
+e ottenere l'autorizzazione ottimizzando così il carico del lavoro sul server web e l'esperienza utente.
