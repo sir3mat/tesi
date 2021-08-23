@@ -1,3 +1,5 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdall'inglese Not only SQL; non solo SQL.\\E$"}
 {"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QNella piattaforma è stato deciso di utilizzare un broker RabbitMQ\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q usando come protocollo di messaggistica l'Advanced message Queuing Protocol 0-9-1\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, per permettere alla API d'interagire con il microservizio del Mailer.\\E$"}
 {"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QIn questa sezione verranno descritte le entità utilizzate per permettere alla API web di erogare i propri servizi.\\E$"}
+{"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QLe policy definite all'interno della API web si basano sul protocollo di autorizzazione OAuth 2.0 \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q e sull'utilizzo di un modello di controllo sugli accessi basato sui ruoli dei singoli utenti.\\E$"}
+{"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QL'implementazione presente all'interno della API web si basa su una coppia di credenziali: email e password.\\E$"}
