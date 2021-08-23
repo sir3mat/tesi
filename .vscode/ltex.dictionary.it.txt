@@ -177,3 +177,6 @@ Identity
 auth
 subscription
 identity
+Typegoose
+Object
+Modelling

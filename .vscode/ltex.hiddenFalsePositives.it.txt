@@ -3,3 +3,4 @@
 {"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QIn questa sezione verranno descritte le entità utilizzate per permettere alla API web di erogare i propri servizi.\\E$"}
 {"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QLe policy definite all'interno della API web si basano sul protocollo di autorizzazione OAuth 2.0 \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q e sull'utilizzo di un modello di controllo sugli accessi basato sui ruoli dei singoli utenti.\\E$"}
 {"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QL'implementazione presente all'interno della API web si basa su una coppia di credenziali: email e password.\\E$"}
+{"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QL'erogazione dei servizi da parte della API web necessità di una memorizzazione permanente di dati, incapsulati all'interno di entità.\\E$"}

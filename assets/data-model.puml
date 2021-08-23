@@ -1,36 +1,110 @@
-@startuml
-
-!if %variable_exists("$THEME")
-title Class Diagram - $THEME theme
-!else
-title Class Diagram
-!endif
-
-'skinparam BackgroundColor transparent
-
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList: this is a message
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-  Object[] elementData
-  size()
+@startuml data-model
+skinparam roundCorner 10
+skinparam shadowing false
+skinparam class {
+  BackgroundColor f3f4f8
+  ArrowColor b3b5bd
+  BorderColor 9496a1
+  FontColor 282a3a
 }
 
-enum TimeUnit {
-  DAYS
-  HOURS
-  MINUTES
+skinparam enum {
+  BackgroundColor f3f4f8
+  ArrowColor b3b5bd
+  BorderColor 9496a1
+  FontColor 282a3a
 }
 
-annotation SuppressWarnings
 
+class User <<collection>> {
+  id: string
+  email: string
+  password: string
+  roles: USER_ROLES[]
+  isVerified: boolean
+  firstName: string
+  lastName: string
+  createdAt: Date
+  updatedAt: Date
+}
+class UserIdentity <<collection>> {
+  id: string
+  externalId: string
+  email: string
+  accessToken: string
+  refreshToken: string
+  provider: THIRD_PARTY_PROVIDER
+  userId: string
+  createdAt: Date
+  updatedAt: Date
+}
+class DemoSubscription <<collection>> {
+  id: string
+  email: string
+  comment: string
+  createdAt: Date
+  updatedAt: Date
+
+}
+class AuthMail <<collection>> {
+  id: string
+  to: string
+  category: AUTH_MAIL_CATEGORIES
+  token: string
+  createdAt: Date
+  updatedAt: Date
+}
+class RefreshToken <<collection>>{
+  id: string
+  value: string
+  userId: string
+  expires: number
+  createdAt: Date
+  updatedAt: Date
+}
+
+enum USER_ROLES <<enum>> {
+  ADMIN
+  USER
+  MANAGER
+  DEMO
+}
+
+enum THIRD_PARTY_PROVIDER <<enum>> {
+  GOOGLE
+  FACEBOOK
+}
+
+enum AUTH_MAIL_CATEGORIES <<enum>> {
+  ACCOUNT_VERIFICATION
+  FORGOT_PASSWORD
+}
+
+
+DemoSubscription -[hidden]right- USER_ROLES
+UserIdentity -[hidden]up- THIRD_PARTY_PROVIDER
+AuthMail -[hidden]down- AUTH_MAIL_CATEGORIES
+
+User "0..*" -down- "1" RefreshToken
+User "0..*" -left- "1" UserIdentity : \t
+User "0..*" -right- "1" AuthMail : \t
+User "0..*" -up- "1" DemoSubscription
+
+hide User circle
+hide UserIdentity circle
+hide DemoSubscription circle
+hide RefreshToken circle
+hide AuthMail circle
+hide USER_ROLES circle
+hide THIRD_PARTY_PROVIDER circle
+hide AUTH_MAIL_CATEGORIES circle
+
+hide User methods
+hide UserIdentity methods
+hide DemoSubscription methods
+hide RefreshToken methods
+hide AuthMail methods
+hide USER_ROLES methods
+hide THIRD_PARTY_PROVIDER methods
+hide AUTH_MAIL_CATEGORIES methods
 @enduml

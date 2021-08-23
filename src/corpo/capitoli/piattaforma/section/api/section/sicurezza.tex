@@ -27,6 +27,7 @@ Scopo del framework è delegare a un'utenza qualsiasi l'accesso limitato a una r
 
 Gli attori coinvolti nell'architettura del framework sono:
 \begin{itemize}
+    \itemsep0em
     \item \textit{Resource Owner}: il proprietario della risorsa esposta. Può essere una applicazione o un utente.
     \item \textit{Resource Server}: è il server che detiene la risorsa esposta.
     \item \textit{Authorization Server}: è il server o il modulo applicativo che rilascia i token di accesso (detti \textit{access token}) al client dopo aver
@@ -54,6 +55,7 @@ Il processo di base definito dal protocollo per autenticare il \textit{client} e
 \end{figure}
 
 \begin{enumerate}
+    \itemsep0em
     \item Il \textit{client} richiede l'autorizzazione al \textit{resource owner}.
     \item Il \textit{client} riceve un \textit{authorization grant}, ovvero delle credenziali che rappresentano l'autorizzazione del \textit{resource owner}.
     \item Il \textit{client} richiede un \textit{access token} autenticandosi con l'\textit{authorization server} e fornendo l'\textit{authorization grant}.

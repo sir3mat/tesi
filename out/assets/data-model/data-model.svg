@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="578px" preserveAspectRatio="none" style="width:648px;height:578px;background:#FFFFFF;" version="1.1" viewBox="0 0 648 578" width="648px" zoomAndPan="magnify"><defs><filter height="300%" id="fwhhl0vyjbi5d" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><rect codeLine="16" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="186.5469" id="User" style="stroke:#9496A1;stroke-width:1.5;" width="115" x="261" y="185"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="285.5" y="202.457">«collection»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="27" x="305" y="217.5508">User</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="262" x2="375" y1="225.1875" y2="225.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="41" x="267" y="240.6064">id: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="267" y="254.4424">email!: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="267" y="268.2783">email!: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="85" x="267" y="282.1143">password!: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="103" x="267" y="295.9502">roles: USER_ROLES[]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="92" x="267" y="309.7861">isVerified!: boolean</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="85" x="267" y="323.6221">firstName?: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="267" y="337.458">lastName?: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="76" x="267" y="351.2939">createdAt: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="267" y="365.1299">updatedAt: Date</text><!--MD5=[df6ffdd42396b7405e8c0a7f442acbc6]
+class UserIdentity--><rect codeLine="28" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="172.7109" id="UserIdentity" style="stroke:#9496A1;stroke-width:1.5;" width="185" x="7" y="192"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="66.5" y="209.457">«collection»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="65" x="67" y="224.5508">UserIdentity</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="8" x2="191" y1="232.1875" y2="232.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="41" x="13" y="247.6064">id: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="80" x="13" y="261.4424">externalId: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="13" y="275.2783">email: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="104" x="13" y="289.1143">accessToken?: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="104" x="13" y="302.9502">refreshToken?: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="173" x="13" y="316.7861">provider: THIRD_PARTY_PROVIDER</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="63" x="13" y="330.6221">userId: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="13" y="344.458">createdAt?: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="13" y="358.2939">updatedAt?: Date</text><!--MD5=[52cc362f66d35c7007b086bff70c125a]
+class DemoSubscription--><rect codeLine="39" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="117.3672" id="DemoSubscription" style="stroke:#9496A1;stroke-width:1.5;" width="109" x="264" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="285.5" y="24.457">«collection»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="103" x="267" y="39.5508">DemoSubscription</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="265" x2="372" y1="47.1875" y2="47.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="41" x="270" y="62.6064">id: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="270" y="76.4424">email!: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="270" y="90.2783">comment?: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="76" x="270" y="104.1143">createdAt: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="270" y="117.9502">updatedAt: Date</text><!--MD5=[a1c0fdd79fd70f48f5beb3a957ba6748]
+class AuthMail--><rect codeLine="47" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="131.2031" id="AuthMail" style="stroke:#9496A1;stroke-width:1.5;" width="190" x="444.5" y="213"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="506.5" y="230.457">«collection»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46" x="516.5" y="245.5508">AuthMail</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="445.5" x2="633.5" y1="253.1875" y2="253.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="41" x="450.5" y="268.6064">id: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="450.5" y="282.4424">to!: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="178" x="450.5" y="296.2783">category: AUTH_MAIL_CATEGORIES</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="65" x="450.5" y="310.1143">token?: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="76" x="450.5" y="323.9502">createdAt: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="450.5" y="337.7861">updatedAt: Date</text><!--MD5=[717906f5578eb2fc29e48fa2044c46f6]
+class RefreshToken--><rect codeLine="55" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="131.2031" id="RefreshToken" style="stroke:#9496A1;stroke-width:1.5;" width="96" x="270.5" y="433"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="285.5" y="450.457">«collection»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="279.5" y="465.5508">RefreshToken</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="271.5" x2="365.5" y1="473.1875" y2="473.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="41" x="276.5" y="488.6064">id: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="276.5" y="502.4424">value: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="63" x="276.5" y="516.2783">userId: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="276.5" y="530.1143">expires: number</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="276.5" y="543.9502">createdAt?: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="276.5" y="557.7861">updatedAt?: Date</text><!--MD5=[5cbbc7f18a89c3b7df79d25f8d8b2405]
+class USER_ROLES--><rect codeLine="64" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="103.5313" id="USER_ROLES" style="stroke:#9496A1;stroke-width:1.5;" width="88" x="408.5" y="13.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="46" x="429.5" y="30.957">«enum»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="82" x="411.5" y="46.0508">USER_ROLES</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="409.5" x2="495.5" y1="53.6875" y2="53.6875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="32" x="414.5" y="69.1064">ADMIN</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="414.5" y="82.9424">USER</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="52" x="414.5" y="96.7783">MANAGER</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="29" x="414.5" y="110.6143">DEMO</text><!--MD5=[2bfaa5f6d81cffc741eb7c902519cd13]
+class THIRD_PARTY_PROVIDER--><rect codeLine="71" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="75.8594" id="THIRD_PARTY_PROVIDER" style="stroke:#9496A1;stroke-width:1.5;" width="157" x="21" y="27.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="46" x="76.5" y="44.957">«enum»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="151" x="24" y="60.0508">THIRD_PARTY_PROVIDER</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="22" x2="177" y1="67.6875" y2="67.6875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="27" y="83.1064">GOOGLE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="27" y="96.9424">FACEBOOK</text><!--MD5=[c82c702ebaddf7fd528266906988551c]
+class AUTH_MAIL_CATEGORIES--><rect codeLine="76" fill="#F3F4F8" filter="url(#fwhhl0vyjbi5d)" height="75.8594" id="AUTH_MAIL_CATEGORIES" style="stroke:#9496A1;stroke-width:1.5;" width="155" x="462" y="460.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="46" x="516.5" y="477.957">«enum»</text><text fill="#282A3A" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="149" x="465" y="493.0508">AUTH_MAIL_CATEGORIES</text><line style="stroke:#9496A1;stroke-width:1.5;" x1="463" x2="616" y1="500.6875" y2="500.6875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="125" x="468" y="516.1064">ACCOUNT_VERIFICATION</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="109" x="468" y="529.9424">FORGOT_PASSWORD</text><!--MD5=[ae7a1f18e9cc8945359623d013cae21d]
+link DemoSubscription to USER_ROLES--><!--MD5=[88435f5825d979e25ca10c7d063ff5e8]
+link THIRD_PARTY_PROVIDER to UserIdentity--><!--MD5=[f40f0182ab970bccec3c10e8d7ca1f23]
+link AuthMail to AUTH_MAIL_CATEGORIES--><!--MD5=[f1e08eb9380522146fd493b5d30e7f59]
+link User to RefreshToken--><path codeLine="86" d="M318.5,372.27 C318.5,392.66 318.5,413.84 318.5,432.84 " fill="none" id="User-RefreshToken" style="stroke:#B3B5BD;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="297.7969" y="392.9491">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="311.1172" y="422.2867">1</text><!--MD5=[e2eb44f29c106316f8365804211da4fb]
+link UserIdentity to User--><path codeLine="87" d="M192.06,278.5 C215.41,278.5 239.81,278.5 260.88,278.5 " fill="none" id="UserIdentity-User" style="stroke:#B3B5BD;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="200.015" y="275.3591">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="233.0614" y="292.9666">0..*</text><!--MD5=[7952c9218a9c55c7bf34dc8a86abcd7b]
+link User to AuthMail--><path codeLine="88" d="M376.28,278.5 C397.12,278.5 421.24,278.5 444.43,278.5 " fill="none" id="User-AuthMail" style="stroke:#B3B5BD;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="384.1171" y="292.9666">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="429.5752" y="275.3635">1</text><!--MD5=[a0ecb1bdd8a3739ea5bcce1ecb62eb13]
+link DemoSubscription to User--><path codeLine="89" d="M318.5,124.16 C318.5,142.95 318.5,164.31 318.5,184.99 " fill="none" id="DemoSubscription-User" style="stroke:#B3B5BD;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="311.0734" y="145.7784">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="297.6719" y="174.1121">0..*</text><!--MD5=[e8ad7d4f312815f9bd67ad53809bde27]
+@startuml data-model
+skinparam class {
+  BackgroundColor f3f4f8
+  ArrowColor b3b5bd
+  BorderColor 9496a1
+  FontColor 282a3a
+}
+
+skinparam enum {
+  BackgroundColor f3f4f8
+  ArrowColor b3b5bd
+  BorderColor 9496a1
+  FontColor 282a3a
+}
+
+
+class User <<collection>> {
+  id: string
+  email!: string
+  email!: string
+  password!: string
+  roles: USER_ROLES[]
+  isVerified!: boolean
+  firstName?: string
+  lastName?: string
+  createdAt: Date
+  updatedAt: Date
+}
+class UserIdentity <<collection>> {
+  id: string
+  externalId: string
+  email: string
+  accessToken?: string
+  refreshToken?: string
+  provider: THIRD_PARTY_PROVIDER
+  userId: string
+  createdAt?: Date
+  updatedAt?: Date
+}
+class DemoSubscription <<collection>> {
+  id: string
+  email!: string
+  comment?: string
+  createdAt: Date
+  updatedAt: Date
+
+}
+class AuthMail <<collection>> {
+  id: string
+  to!: string
+  category: AUTH_MAIL_CATEGORIES
+  token?: string
+  createdAt: Date
+  updatedAt: Date
+}
+class RefreshToken <<collection>>{
+  id: string
+  value: string
+  userId: string
+  expires: number
+  createdAt?: Date
+  updatedAt?: Date
+}
+
+enum USER_ROLES <<enum>> {
+  ADMIN
+  USER
+  MANAGER
+  DEMO
+}
+
+enum THIRD_PARTY_PROVIDER <<enum>> {
+  GOOGLE
+  FACEBOOK
+}
+
+enum AUTH_MAIL_CATEGORIES <<enum>> {
+  ACCOUNT_VERIFICATION
+  FORGOT_PASSWORD
+}
+
+
+DemoSubscription -[hidden]right- USER_ROLES
+UserIdentity -[hidden]up- THIRD_PARTY_PROVIDER
+AuthMail -[hidden]down- AUTH_MAIL_CATEGORIES
+
+User "0..*" -down- "1" RefreshToken
+User "0..*" -left- "1" UserIdentity : \t
+User "0..*" -right- "1" AuthMail : \t
+User "0..*" -up- "1" DemoSubscription
+
+hide User circle
+hide UserIdentity circle
+hide DemoSubscription circle
+hide RefreshToken circle
+hide AuthMail circle
+hide USER_ROLES circle
+hide THIRD_PARTY_PROVIDER circle
+hide AUTH_MAIL_CATEGORIES circle
+
+hide User methods
+hide UserIdentity methods
+hide DemoSubscription methods
+hide RefreshToken methods
+hide AuthMail methods
+hide USER_ROLES methods
+hide THIRD_PARTY_PROVIDER methods
+hide AUTH_MAIL_CATEGORIES methods
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: it
+Country: IT
+--></g></svg>

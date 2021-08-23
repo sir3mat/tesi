@@ -20,12 +20,14 @@ L'AMQP 0-9-1 è un protocollo di livello applicativo che permette a delle applic
 Per rendere completa questa interazione è necessario che fra le parti venga specificata la sintassi da usare e la semantica dei messaggi per i servizi offerti dal broker.
 Il protocollo AMQP li definisce entrambi:
 \begin{itemize}
+    \itemsep0em
     \item \textit{Advanced Message Queuing protocol} (AMQP): è il protocollo che definisce la sintassi dei messaggi che permettono ai client d'interagire con il broker.
     \item \textit{Advanced Message Queuing model} (AMQ model): definisce un insieme di elementi e standard che devono essere implementati dal broker in modo tale da supportare le interazioni fra \textit{publishers} e \textit{consumers}.
 \end{itemize}
 
 Il protocollo AMQP è un protocollo di livello applicativo diviso in due layer:
 \begin{itemize}
+    \itemsep0em
     \item \textit{Functional Layer}: definisce i comandi che permettono alle applicazioni di svolgere operazioni sul broker
     \item \textit{Transport Layer}:  gestisce il multiplexing del canale, il framing, la codifica e il trasporto dei messaggi. Permette anche la gestione degli errori, la comunicazione asincrona e funzionalità di heartbeat.
 \end{itemize}
@@ -33,6 +35,7 @@ Il protocollo AMQP è un protocollo di livello applicativo diviso in due layer:
 Il modello AMQ definisce tre tipologie di componenti, che vengono poi connessi e processati dal broker per erogare i servizi richiesti.
 Nel dettaglio:
 \begin{itemize}
+    \itemsep0em
     \item \textit{Exchange}: componente che indirizza i messaggi alle code
     \item \textit{Message queue} ("coda di messaggi"): una struttura dati che memorizza i messaggi
     \item \textit{Binding}: regola che definisce la relazione tra l'\textit{exchange} e la coda.
@@ -55,6 +58,7 @@ Quando un messaggio arriva sul canale, uno qualsiasi dei consumers potrebbe rice
 
 Per implementare questo modello si è deciso di utilizzare i seguenti elementi:
 \begin{itemize}
+    \itemsep0em
     \item \textit{Task Queue}: coda usata per distribuire su più consumers varie operazioni che richiedono molto tempo.
     \item Distribuzione \textit{Round Robin}: il broker manderà un messaggio a ogni \textit{consumer} in maniera sequenziale (ogni \textit{consumer} riceverà in media lo stesso numero di messaggi). Questo garantisce che tutti i messaggi verranno recapitati almeno una volta.
     \item \textit{Message acknowledgment} (ACK): vengono utilizzati degli ACK per confermare la corretta elaborazione di un messaggio da parte di un \textit{consumer}. Se l'ACK non viene inviato al broker, il messaggio verrà rimesso in coda.
