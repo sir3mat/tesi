@@ -1,2 +1,130 @@
 \subsection{Modellazione dati}
-testo
+In questa sezione verranno descritte le entità utilizzate per permettere alla API web di erogare i propri servizi.
+
+Nel dettaglio si hanno:
+\begin{itemize}
+    \item User: incapsula le informazioni dell'utente.
+    \item Auth Mail: utilizzata per tenere traccia delle email di verifica dell'account e recupero della password.
+    \item User Identity: rappresenta un'identità di terze parti.
+    \item Refresh Token: rappresenta il refresh token di proprietà di un utente.
+    \item Subscription: identifica una sottoscrizione a un servizio da parte di un utente.
+\end{itemize}
+
+Le relazioni fra le entità sono così definite:
+\begin{itemize}
+    \item uno user può avere zero o più refresh token
+    \item uno user può avere zero o più user identity
+    \item uno user può avere zero o più subscription
+    \item uno user può avere zero o più auth mail associate
+\end{itemize}
+
+
+
+%%export class DemoSubscription extends BaseModel implements IDemoSubscription {
+%        @prop({ required: true })
+%        email!: string;
+%
+%        @prop({ required: false })
+%        comment?: string;
+%
+%        @IsDate()
+%        createdAt: Date;
+%
+%        @IsDate()
+%        updatedAt: Date;
+%    }
+%
+%
+%
+%export enum AUTH_MAIL_CATEGORIES {
+%ACCOUNT_VERIFICATION = 'account_verification',
+%FORGOT_PASSWORD = 'forgot_password',
+%}
+%
+%@index({ to: 1, category: 1, token: 1 }, { unique: true })
+%export class AuthMail extends BaseModel implements IAuthMail {
+%        @prop({ required: true })
+%        to!: string;
+%
+%        @prop({ type: String, enum: AUTH_MAIL_CATEGORIES, required: true })
+%        category: AUTH_MAIL_CATEGORIES;
+%
+%        @prop()
+%        token?: string;
+%
+%
+%        @IsDate()
+%        createdAt: Date;
+%
+%        @IsDate()
+%        updatedAt: Date;
+%    }
+%
+%export enum USER_ROLES {
+%ADMIN = 'ADMIN',
+%USER = 'USER',
+%MANAGER = 'MANAGER',
+%DEMO = 'DEMO',
+%}
+%
+%@pre<User>('save', async function (next: mongoose.HookNextFunction) {
+%        try {
+%                if (!this.isModified('password')) {
+%                        return next();
+%                    }
+%                const hashed = await bcrypt.hash(this['password'], 10);
+%                this['password'] = hashed;
+%                return next();
+%            } catch (err) {
+%                return next(err);
+%            }
+%    })
+%export class User extends BaseModel implements IUser {
+%@IsEmail()
+%@prop({ required: true, unique: true })
+%email!: string;
+%
+%@prop({
+%    required: true,
+%    minlength: 8,
+%    select: false,
+%})
+%@IsString()
+%password!: string;
+%
+%@prop({ type: String, enum: USER_ROLES })
+%roles: USER_ROLES[];
+%
+%@prop({ required: true, default: false })
+%isVerified!: boolean;
+%
+%@IsOptional()
+%@prop({ required: false })
+%firstName?: string;
+%
+%@IsOptional()
+%@prop({ required: false })
+%lastName?: string;
+%}
+%
+%
+%export declare class RefreshToken extends BaseModel implements IRefreshToken {
+%        value: string;
+%        userId: string;
+%        expires: number;
+%        createdAt?: Date;
+%        updatedAt?: Date;
+%    }
+%
+%    export declare class UserIdentity extends BaseModel implements IThirdPartyUser {
+%        externalId: string;
+%        email: string;
+%        accessToken?: string;
+%        refreshToken?: string;
+%        provider: THIRD_PARTY_PROVIDER;
+%        userId: string;
+%        createdAt?: Date;
+%        updatedAt?: Date;
+%    }
+%    
+%
