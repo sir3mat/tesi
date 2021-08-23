@@ -1,2 +1,3 @@
 {"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdall'inglese Not only SQL; non solo SQL.\\E$"}
 {"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QNella piattaforma è stato deciso di utilizzare un broker RabbitMQ\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q usando come protocollo di messaggistica l'Advanced message Queuing Protocol 0-9-1\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, per permettere alla API d'interagire con il microservizio del Mailer.\\E$"}
+{"rule":"ARTICOLATA_SOSTANTIVO","sentence":"^\\QIn questa sezione verranno descritte le entità utilizzate per permettere alla API web di erogare i propri servizi.\\E$"}
