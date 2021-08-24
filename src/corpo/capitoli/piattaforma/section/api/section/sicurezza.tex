@@ -1,16 +1,30 @@
 \subsection{Autenticazione}
-L'autenticazione è un metodo che permette l'identificazione degli utenti sulla base di un set di credenziali e
-verificare che questi forniscano le giuste informazioni per accedere alla applicazione.
+L'autenticazione è un metodo che permette l'identificazione degli utenti sulla base di determinate credenziali e la
+verifica della legittimità di una utenza.
 
 L'implementazione presente all'interno della API web si basa su una coppia di credenziali: email e password.
 
-Per garantire una archiviazione sicura delle password è stato deciso di applicare una policy basata sull'uso di \textit{hash} e \textit{salt}.
+Per garantire una archiviazione sicura delle password è stato deciso di imporre regole sul formato della password per renderla 'poco' vulnerabile (lunga e con una sequenza confusa di numeri, lettere e simboli)
+e applicare una policy basata su funzioni di \textit{hash} e di \textit{salt}.
 
+Una funzione di \textit{hash} è una funzione non invertibile che partendo da un messaggio di dimensione qualsiasi genera una stringa
+binaria di dimensione fissa, chiamata \textit{message digest} oppure valore di \textit{hash}, che identifica in modo univoco il messaggio originale.
 
-- spiegazione di hash -
-- spiegazione di salt -
-- che problema risolve la loro introduzione -
+L'applicazione della sola funzione di hash non è però sufficiente a proteggere una password a causa degli attacchi basati su dizionari, su tabelle di associazione
+hash-password (\textit{hash table}) e di tipo brute force. Tutte queste tipologie hanno come obiettivo l'individuazione di un valore di \textit{hash}.
+Le principali differenze sono che gli attacchi brute force utilizzano come input alla funzione di hash sequenze di caratteri casuali mentre gli attacchi dizionario utilizzano
+stringhe in lingua naturale ed entrambe richiedono una computazione runtime per calcolare il valore di hash.
+Le \textit{hash table} sono invece tabelle di valori di hash precedentemente calcolati: questo riduce molto i tempi per scoprire il valore di una password
+perché partendo da un database di valori di hash è possibile fare una associazione inversa e individuare l'input originale.
 
+Per mitigare questi attacchi è stato necessario introdurre l'utilizzo delle funzioni di \textit{salt}.
+Queste permettono di aggiugnere all'input della funzione di \textit{hash} un valore generato con una funzione di crittografia sicura andando così a creare dei \textit{message digest} unici.
+L'aggiunta di questo valore di \textit{salt} rende la funzione di \textit{hash} non deterministica ed
+evita così di generare \textit{message digest} uguali per lo stesso input.
+
+Nella piattaforma è stata utilizzata come funzione di hash \textit{bcrypt}\cite{bcrypt}. Questa funzione richiede un salt, un parametro costo e una chiave primaria (la password) e ha come
+caratteristica il fatto che il processo di hashing avviene in più cicli (tanti quanto il costo). Questo significa che il processo di generazione sarà tanto più lento quanto è alto il valore
+costo passato alla funzione e ciò permette di adeguarne l'efficacia nei confronti della potenza di calcolo dei computer che cresce ogni anno.
 
 \subsection{Autorizzazione}
 L'autorizzazione è un metodo che permette di garantire la riservatezza e la disponibilità dei dati.
@@ -19,7 +33,6 @@ rendendole disponibili solo agli utenti autorizzati.
 
 Le policy definite all'interno della API web si basano sul protocollo di autorizzazione OAuth 2.0 \cite{rfc6749} e sull'utilizzo di un
 modello di controllo sugli accessi basato sui ruoli dei singoli utenti.
-
 
 \subsubsection{OAuth 2.0}
 OAuth 2.0 è un framework autorizzativo standard per applicazioni Web.

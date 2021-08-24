@@ -39,6 +39,7 @@ framework
 salt
 hash
 OAuth
+input
 policy
 authorization
 client
@@ -180,3 +181,10 @@ identity
 Typegoose
 Object
 Modelling
+digest
+aggiugnere
+force
+hash-password
+table
+sottochiavi
+hashing
