@@ -92,8 +92,6 @@ A questo punto il \textit{client} effettuerà la richiesta per ottenere la risor
 I benefici di questa tipologia di \textit{authorization grant} sono dovuti al fatto che il \textit{resource owner} si autentica direttamente con il \textit{authorization server}
 e di conseguenza le sue credenziali non vengono mai condivise con il \textit{client}.
 
-[schemino oauth flow generale o esempio con facebook/google]
-
 Nella piattaforma è stato poi deciso di sfruttare gli \textit{access token} anche per gestire le autorizzazioni
 degli utenti interni alla piattaforma. Nello specifico vengono usati insieme a dei \textit{refresh token} che permettono
 di ottenere un nuovo \textit{access token} quando quest'ultimo scade. Questo evita di dover richiedere all'utente di autenticarsi
