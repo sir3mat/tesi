@@ -188,3 +188,5 @@ hash-password
 table
 sottochiavi
 hashing
+autorizzazioe
+template
