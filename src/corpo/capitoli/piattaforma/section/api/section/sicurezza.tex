@@ -53,14 +53,14 @@ Altri elementi significativi sono l'\textit{access token} e l'\textit{authorizat
 
 Il primo è una stringa che rappresenta le credenziali necessarie per ottenere l'accesso alla risorsa protetta sul resource server.
 Pratica comune è utilizzare il formato Json Web Token\cite{rfc7519} (JWT) che permette di codificare un oggetto JSON in un token
-che può essere cifrato e firmato con vari algoritmi (HMAC, RSA, ECDSA). Questo permette di trasmettere in modo sicuro e compatto delle informazioni
+che può essere cifrato e firmato con vari algoritmi (HMAC, RSA). Questo permette di trasmettere in modo sicuro e compatto delle informazioni
 fra due interlocutori garantendone integrità e confidenzialità.
 
 L'\textit{authorization grant} rappresenta le credenziali che verificano l'autorizzazione fornita dal \textit{resource owner} e usate dal \textit{client} per ottenere un \textit{access token}.
 Il framework ne definisce quattro tipologie: \textit{authorization code}, \textit{implicit}, \textit{resource owner password credentials} e \textit{client credentials}.
 
 Il processo di base definito dal protocollo per autenticare il \textit{client} e fornire un \textit{access token} è il seguente:
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.75\textwidth]{oauth.png}
     \caption{Flusso del protocollo OAuth 2.0}

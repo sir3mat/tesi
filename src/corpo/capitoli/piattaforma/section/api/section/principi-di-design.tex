@@ -22,18 +22,20 @@ Ognuno di questi moduli è organizzato con una architettura a tre strati (vedi F
     \item Data Access Layer: contiene gli elementi, detti models, che permettono di interagire con il database.
 \end{itemize}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.35\textwidth]{three-tier.eps}
-    \caption{Schema riassuntivo della architettura \textit{three-tier}}
-    \label{fig:three-tier}
-\end{figure}
-
 I moduli, i controller e i servizi sono delle istante \textit{singleton}, create
 all'avvio dell'applicazione e condivise al suo interno. Inoltre ogni componente sfrutta il meccanismo
 della \textit{dependency injection} per risolvere le proprie dipendenze e ciò comporta
 notevoli vantaggi per quando riguarda la riusabilità del codice e la verifica del comportamento dei componenti
 nella fase di test.
-Nella applicazione sarà poi presenta anche un modulo di \textit{root}, detto \textit{application module}, che 
+Nella applicazione sarà poi presenta anche un modulo di \textit{root}, detto \textit{application module}, che
 permette si risolvere le dipendenze tra i vari elementi della applicazione e ne esegue l'avvio.
+Inoltre ogni modulo potrà poi essere convertito in microservizio nel caso in cui si voglia avere la possibilità di scalare
+indipendentemente i vari servizi in base alle esigenze richieste dalle operazioni degli utenti.
 Questi elementi supportano la realizzazione di una architettura scalabile, coesa, disaccoppiata e mantenibile.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{three-tier.eps}
+    \caption{Schema riassuntivo della architettura \textit{three-tier}}
+    \label{fig:three-tier}
+\end{figure}

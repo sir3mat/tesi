@@ -204,3 +204,9 @@ services
 models
 root
 module
+header
+list
+control
+admin
+wrapper
+amqplib

@@ -9,8 +9,6 @@ System(Service, "Service Layer","Gestione logica di buisiness")
 System(Data, "Data Access Layer", "Gestione logica di accesso ai dati")
 
 
-
-
 Rel(Controller, Service," Uses")
 Rel(Service, Data," Uses")
 
