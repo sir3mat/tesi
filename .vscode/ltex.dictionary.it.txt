@@ -210,3 +210,11 @@ control
 admin
 wrapper
 amqplib
+indipendete
+transport
+perchè
+rendering
+Compute
+Elastic
+computing
+provisioning
