@@ -219,3 +219,11 @@ Elastic
 computing
 provisioning
 devops
+Operations
+Development
+operations
+interfunzionale
+efficenza
+efficente
+tolerance
+fault

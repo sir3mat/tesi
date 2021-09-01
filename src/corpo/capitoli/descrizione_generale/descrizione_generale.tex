@@ -15,35 +15,109 @@ L'erogazione di questi servizi avviene grazie ai seguenti elementi (vedi Figura 
     \item Database: permette di gestire i dati in modo permanente.
 \end{itemize}
 
+Gli utenti che interagiranno con la piattaforma software possono essere catalogati in utenti semplici e amministratori.
+Gli utenti semplici sono da considerare privi di conoscenze tecniche. Gli amministratori che gestiranno l’API, le applicazioni client, il sistema delle mail e il database
+sono personale altamente qualificato in grado di effettuare operazioni di monitoraggio, modifica, correzione e aggiornamento dei vari elementi.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{container-diagram-generale.eps}
+    \includegraphics[scale=0.4]{container-diagram-generale.eps}
     \caption{Architettura piattaforma}
     \label{fig:Piattaforma}
 \end{figure}
-\newpage
+
+La piattaforma è da considerare come una base su cui costruire e aggiungere tutti quei componenti in grado di supportare le funzionalità richieste dal cliente e supportare
+in modo efficiente il suo business.
+
 
 \section{Vincoli generali}
-Scalabilità
-robustezza
-sicurezza
-collaborazione
+\subsection{Requisiti di scalabilità}
+La piattaforma deve essere scalabile, ovvero in grado di supportare le operazioni degli utenti
+in maniera efficiente.
+Pertanto dovrà supportare una possibile transazione a una architettura completamente a microservizi per poter distribuire il traffico e
+il carico di lavoro.
+Anche le operazioni si supporto al processo di lavoro per la creazione del software deve essere scalabile.
+Verranno usate tecnologie, pratiche e metodologie per migliorare l'efficenza delle fasi di sviluppo, verifica e rilascio del prodotto.
+
+\subsection{Requisiti di affidabilità}
+La piattaforma deve garantire l'affidabilità dei servizi erogati e mantenere un livello di prestazioni
+costante quanto viene utilizzata sotto varie condizioni per un dato periodo di tempo.
+Deve garantire la presenza di meccanismi di \textit{fault tolerance} per la gestione degli errori, malfunzionamenti o un utilizzo improprio della piattaforma
+garantendo la capacità di ripristinare le prestazioni e le informazioni nelle procedure più sensibili.
+
+\subsection{Considerazioni sulla sicurezza}
+Il sistema deve garantire la sicurezza degli utenti e l’accesso alle proprie informazioni sensibili.
+LA privacy degli utenti dovrà essere garantita nel rispetto del Regolamento (UE) 2016/679 GDPR \cite{gdpr}.
+Sarà previsto un meccanismo di autenticazione basato su email e password per utenti e amministratori.
+Verrà poi implementato un meccanismo di autorizzazione basato sui ruoli e sui permessi di accesso alle singole risorse.
+Solo gli amministratori potranno accedere alla API, all’email system e al database.
+Per garantire la confidenzialità dei dati scambiati verrà usata una comunicazione sicura tra tutti gli elementi della piattaforma.
+
+\subsection{Collaborazione}
+Controllo versione, collaborazione fra i team per garantire successo, procedure coordinate per sviluppo e verifica requisiti, procedure automatizzate per il rilascio
 
 
 \section{Metodologia di lavoro}
 La metodologia di lavoro adottata per la realizzazione della piattaforma si ispira alla metodologia agile e alle pratiche di DevOps.
 
-La metodologia agile è un modello di sviluppo finalizzato a rilasciare frequentemente software funzionante e di qualità al cliente.
-Annunciato ufficialmente nel 2001 attravero il Manifesto Agile questo modello si basa sui seguenti principi:
+La metodologia agile, annunciato ufficialmente nel 2001 attraverso il Manifesto Agile,
+è un modello di sviluppo finalizzato a rilasciare frequentemente software funzionante e di qualità al cliente.
+
+Questa metodologia prevede che le funzionalità del software non vengono rilasciate
+tutte in un singolo blocco ma vengono aggiunte singolarmente frequentemente e in modo costante.
+Il problema della realizzazione del software viene quindi affrontato con l'approccio divide et impera:
+attraverso una iterazione continua il prodotto software complesso viene suddiviso in sottoprodotti di più semplice comprensione.
+I singoli sottoprodotti verranno poi ricomposti come un singolo sistema software.
+Inoltre è necessario coinvolgere il cliente in maniera costante per renderlo consapevole dell'avanzamento del progetto e per verificare la comprensione
+dei requisiti e per individuare errori prima di passare alla realizzazione del sottoprodotto successivo.
+
+Questo porta alla realizzazione di cicli in cui interagiscono il team di sviluppo e il cliente: questi si confrontano
+per individuare immediatamente problemi nelle funzionalità realizzate e poter così realizzare sin da subito software di qualità.
+Questi cicli si ripetono ogni volta che deve essere realizzato un nuovo sottoprodotto. Gli elementi chiave del ciclo sono:
 \begin{itemize}
     \itemsep0em
-    \item 
+    \item Pianificazione: avviene la raccolta dei requisiti connessi a una funzionalità da implementare
+    \item Codifica: vengono implementate le funzionalità incapsulate in componenti
+    \item Test: si verifica se ciò che è stato prodotto funziona secondo i requisiti raccolti
+    \item Revisione: si raccolgono le opinioni del cliente. In questa fase è possibile individuare errori e verificare la comprensione dei requisiti.
 \end{itemize}
+
+Una volta realizzato il sottoprodotto è necessario metterlo nell'ambiente di produzione per poter così fornire le nuove funzionalità al cliente.
+Questa procedura implica l'integrazione dei nuovi artefatti con quelli già prodotti.
+La complessità di questa operazione è notevole in quanto bisognerà configurare l'artefatto e l'ambiente per farli cooperare, integrare i nuovi elementi, testare il prodotto risultante
+per verificarne il funzionamento e monitorare il nuovo prodotto per individuare problemi durante l'utilizzo.
+Queste operazioni solitamente non vengono fatte dal team di sviluppo (Development Team) ma dai sistemisti (Operations team).
+Questi si ritroveranno a dover risolvere dei problemi senza nessuna conoscenza del codice e ciò potrebbe portare a malfunzionamenti del sistema rilasciato al cliente.
+Per evitare questa situazione è stato deciso di seguire le pratiche DevOps.
+
+Queste pratiche hanno come scopo l'eliminazione del confine tra i due team andando a considerare questo come un unico gruppo interfunzionale in cui le risorse
+siano in grado di acquisire responsabilità riguardanti ogni aspetto ciclo di vita del software.
+
+Le pratiche DevOps estendono quelle della metodologia agile andando a considerare nel ciclo di sviluppo del software
+anche le operazioni tipicamente fatte dall'operations team.
+Questo approccio suddivide il ciclo di sviluppo software nelle fasi di pianificazione, codifica, build, test, rilascio, deploy, monitoraggio e operazioni.
+Le fasi di pianificazione, codifica e test sono analoghe a quelle della metodologia agile. La fase di build prevede la compilazione dei componenti realizzati,
+la fase di rilascio prevede la pubblicazione del codice sorgente in una repository remota, la fase di deploy consiste nell'installazione del sistema nell'ambiente di produzione
+mentre le fasi di monitor e operate consistono nella supervisione dell'ambiente e nella sua configurazione.
+Spesso queste fasi vengono supportate con l'uso di tecnologie in grado di automatizzare alcune procedure e il passaggio degli artefatti tra una fase e la successiva.
+
+Se la metodologia agile fornisce una meccanismo per poter rilasciare software di qualità in un contesto in cui le esigenze sono in continua evoluzione
+le pratiche DevOps vogliono ottimizzare l'efficenza del processo di sviluppo del software fornendo degli strumenti utili per favorire la collaborazione fra i vari reparti coinvolti.
+L'unione delle due filosofie permette di ottenere una maggiore efficenza nella gestione complessiva della produzione del software e dei risultati più affidabili.
+
 Emerge quindi in modo evidente la contrapposizione con i classici modelli di sviluppo come il modello a cascata.
-Infatti qui si hanno blablabla che si contrappongono con vlablabla
+Questa metodologia ha una struttura rigida composta dalle seguenti fasi: analisi dei requisiti, progettazione, codifica, test, rilascio, manutenzione.
+Ogni fase produce degli artefatti che sono necessari per il completamento delle attività nella fase successiva. Questo implica che tra il contatto con il cliente
+in qui avviene la raccolta dei requisiti e la consegna del prodotto software può passare molto tempo.
+Ciò introduce rischi relativi alla realizzazione di un software tecnologicamente obsoleto oppure non in grado di soddisfare le
+esigenze del cliente (a causa della mancanza di comunicazione).
+Di conseguenza questa metodologia di lavoro non si presta in modo efficiente a quelle organizzazioni dinamiche che non conoscono
+a priori i requisiti che vogliono vedere soddisfatti e che necessitano di cambiamenti frequenti nelle operazioni.
 
-questa metofologia agile permette quindi questi benefici
-1 2 3 4 5 
+Nella realizzazione della piattaforma è stato deciso di organizzare in questo modo i lavori perchè si è voluto dare molta importanza
+alla relazione con il cliente in quanto il prodotto che verrà offerto sarà una personalizzazione realizzata sulla base delle sue esigenze.
+Pertanto è stata scelta una metodologia di lavoro in grado di stimolare la nascita di relazioni costruttive utili a portare a termine con successo il progetto
+nel modo più efficente possibile.
 
-con queste accortezze (Svantaggi)
+
 
