@@ -64,23 +64,26 @@ La metodologia agile, annunciata ufficialmente nel 2001 attraverso il Manifesto 
 è un modello di sviluppo finalizzato a rilasciare frequentemente software funzionante e di qualità al cliente.
 
 Questa metodologia prevede che le funzionalità del software non vengono rilasciate
-tutte in un singolo blocco ma vengono puntualmente secondo unna cadenza frequente e costante.
-Il problema della realizzazione del software viene quindi affrontato con l'approccio divide et impera:
-attraverso una iterazione continua il prodotto software complesso viene suddiviso in sottoprodotti di più semplice realizzazione.
-I singoli sottoprodotti verranno poi ricomposti come un singolo sistema software.
+tutte in un singolo blocco ma vengono puntualmente secondo una cadenza frequente e costante.
 
-In questo contesto è inoltre necessario coinvolgere il cliente in maniera costante per renderlo consapevole dell'avanzamento del progetto,
-per verificare la comprensione dei requisiti e individuare errori prima di passare alla realizzazione del sottoprodotto successivo.
-Questo porta alla realizzazione di cicli in cui interagiscono il team di sviluppo e il cliente: permettono
-di individuare molto presto possibili problemi nelle funzionalità realizzate che potranno poi essere corretti. Ciò favorisce il rilascio immediato di software di qualità.
-Questi cicli si ripetono ogni volta che deve essere realizzato un nuovo sottoprodotto. Gli elementi chiave del ciclo sono:
+In particolare si ha che il processo di sviluppo software nella metodologia agile viene suddiviso in sprint.
+Ogni sprint porta allo sviluppo e al rilascio di nuove funzionalità attraverso le seguenti fasi:
 \begin{itemize}
     \itemsep0em
     \item Pianificazione: avviene la raccolta dei requisiti connessi a una funzionalità da implementare
+    \item Design: vengono progettate le funzionalità
     \item Codifica: vengono implementate le funzionalità incapsulate in componenti
     \item Test: si verifica se ciò che è stato prodotto funziona secondo i requisiti raccolti
     \item Revisione: si raccolgono le opinioni del cliente. In questa fase è possibile individuare errori e verificare la comprensione dei requisiti.
 \end{itemize}
+
+In questo contesto è inoltre necessario coinvolgere il cliente in maniera costante per renderlo consapevole dell'avanzamento del progetto,
+per verificare la comprensione dei requisiti e individuare errori prima di passare alla realizzazione del sottoprodotto successivo.
+Questo porta alla realizzazione di cicli, in cui interagiscono il team di sviluppo e il cliente, che permettono
+di individuare molto presto possibili problemi nelle funzionalità realizzate che potranno poi essere corretti. Ciò favorisce il rilascio immediato di software di qualità.
+Il problema della realizzazione del software viene quindi affrontato con l'approccio divide et impera:
+attraverso una iterazione continua il prodotto software complesso viene suddiviso in sottoprodotti di più semplice realizzazione.
+I singoli sottoprodotti verranno poi ricomposti come un singolo sistema software.
 
 Una volta realizzato il sottoprodotto è necessario metterlo nell'ambiente di produzione per poter così fornire le nuove funzionalità al cliente.
 Questa procedura implica l'integrazione dei nuovi artefatti con quelli già prodotti.
@@ -93,17 +96,17 @@ Per evitare questa situazione è stato deciso di seguire le pratiche DevOps.
 Queste pratiche hanno come scopo l'eliminazione del confine tra i due team andando a considerare questo come un unico gruppo interfunzionale in cui le risorse
 siano in grado di acquisire responsabilità riguardanti ogni aspetto ciclo di vita del software.
 
-Le pratiche DevOps estendono quelle della metodologia agile andando a considerare nel ciclo di sviluppo del software
+Le pratiche DevOps vengono solitamente applicate nella metodologia agile per poter ottimizzare non solo le fasi di sviluppo del software ma
 anche le operazioni tipicamente fatte dall'operations team.
-Questo approccio suddivide il ciclo di sviluppo software nelle fasi di pianificazione, codifica, build, test, rilascio, deploy, monitoraggio e operazioni.
-Le fasi di pianificazione, codifica e test sono analoghe a quelle della metodologia agile. La fase di build prevede la compilazione dei componenti realizzati,
+Questo approccio suddivide il ciclo di sviluppo software nelle fasi di pianificazione, design, codifica, build, test, rilascio, deploy, monitoraggio e operazioni.
+Le fasi di pianificazione, design,  codifica e test sono analoghe a quelle della metodologia agile. La fase di build prevede la compilazione dei componenti realizzati,
 la fase di rilascio prevede la pubblicazione del codice sorgente in una repository remota, la fase di deploy consiste nell'installazione del sistema nell'ambiente di produzione
 mentre le fasi di monitor e operate consistono nella supervisione dell'ambiente e nella sua configurazione.
 Spesso queste fasi vengono supportate con l'uso di tecnologie in grado di automatizzare alcune procedure e il passaggio degli artefatti tra una fase e la successiva.
 
 Le pratiche DevOps permettono quindi ottimizzare l'efficenza del processo di sviluppo del software fornendo degli strumenti utili per favorire la collaborazione fra i vari reparti coinvolti.
 Fondendo questa filosofia insieme alla metodologia agile, che permette di rilasciare software di qualità in un contesto in cui le esigenze sono in continua evoluzione,
-permette di ottenere dei risultati più affidabili e una maggiore efficenza nella gestione complessiva della produzione del software.
+è possibile di ottenere dei risultati più affidabili e una maggiore efficenza nella gestione complessiva della produzione del software.
 
 Emerge quindi in modo evidente la contrapposizione con i classici modelli di sviluppo come il modello a cascata.
 Questa metodologia ha una struttura rigida composta dalle seguenti fasi: analisi dei requisiti, progettazione, codifica, test, rilascio, manutenzione.
