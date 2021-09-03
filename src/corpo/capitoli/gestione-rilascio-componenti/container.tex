@@ -1,1 +1,96 @@
 \section{Container}
+\subsection{Introduzione}
+Tutti i componenti della piattaforma sono gestiti con il supporto di container utilizzando Docker.
+
+Un container Docker è un ambiente isolato in cui può essere messa in esecuzione una applicazione.
+Questi vengono eseguiti direttamente dal kernel della macchina host e non richiedono un hypervisor come le
+macchine virtuali. Questo rende i container molto più leggeri. Altra caratteristica è che i singoli container,
+quando eseguiti, vengono gestiti come processi separati. Questo significa che godono di un elevato livello di isolamento
+con la macchina host e gli altri processi garantendone la sicrezza.
+Inoltre la gestione delle applicazioni in container permette di velocizzare e rendere più efficente il ciclo di sviluppo del software in quanto
+ne aumenta la portabilitità, rendendo più semplice le fasi si build, test e deploy.
+
+Il meccanismo che porta alla creazione di un container docker si basa sui seguenti elementi:
+\begin{itemize}
+    \itemsep0em
+    \item Docker Engine: server o processo deamon che effettua tutte le operazioni necessarie per gestire container Docker.
+    \item Docker CLI: interfaccia a riga di comando con cui interagire con il server Docker.
+    \item Immagine: elemento che incapsula un insieme di direttive e di software che permettodno di creare il container.
+    \item Registro: permette di salvare le immagini in raccolte pubbliche o private. Viene usato DockerHub, un image registry accessibile da remoto.
+    \item Container: elemento che include un'immagine. Può essere messo in esecuzione rendendo accessibile l'applicazione.
+\end{itemize}
+
+\subsection{Creazione immagini}
+
+Le immagini vengono create con dei file speciali detti DockerFile.
+Questi contengono le direttive per includere il codice sorgente, le dipendenze ed eseguire script e vengono utilizzati
+dai container per mettere in esecuzione l'applicazione. Nel dettaglio ciò che avviene è che ogni istruzione
+presente nel DockerFile aggiunge un layer all'immagine che viene quindi realizzata attraverso vari stage.
+Questo significa che ad ogni layer sarà associato un artefatto diverso rispetto al layer precedente e bisognerà
+quindi prestare attenzioni agli elementi effettivamente coinvolti nelle varie operazioni.
+
+Per ottimizzare la gestione e la dimensione delle immmagini è quindi necessario ricordarsi di ripulire gli
+elementi non necessari per il layer successivo. A tal fine nella piattaforma è stato deciso di
+utilizzare il multi-stage build pattern per gestire i DockerFile. Questo permette di creare basi
+differenti su cui costruire i propri artefatti. Ciò significa che è possibile
+fare riferimento gli artefatti realizzati nei singoli stage invece di gestire il risultato finale.
+Questo è vantaggioso in quanto permette di operare effettivamente solo con gli artefatti necessari.
+
+Nel listing \ref{lst:DockerFile} viene riportato il DockerFile utilizzato per creare le immagini dei componenti della piattaforma.
+Questo prevede l'utilizzo di sei basi differenti: node, dev, source, test, preprod e prod.
+La base node è una immagine basata sul progetto Alpine Linux contente Node.js e gl istrumenti necessari per
+creare l'mabiente in cui sarà possibile eseguire l'applicazione. La base dev copia i file package.json e package-lock.json
+contenenti l'elenco delle dipendenze dei componenti della applicazione poi con il comando npm le installa.
+La base source effettua la build dei vari componenti mentre la base test utilizza lo stage source per eseguire i test.
+Questo permetterà di verificare il comportamento dei componenti durante l'esecuzione delle procedure automatizzate di integrazione
+e deploy del software. La base preprod, partendo dall'artefatto generato dalla stage dev, elimina le dipendenze non necessarie per l'ambiente
+di produzione ottimizzando così la dimensione dell'immagine che verrà usata come base nello stage prod.
+Questo copia i file compilati, le dipendenze e i file di specifica per poi includere la direttiva per eseguire i componenti.
+
+\begin{docker}[label={lst:DockerFile}]{DockerFile}
+    FROM node:15-alpine as node
+
+    FROM node as dev
+    WORKDIR /app
+    COPY package*.json ./
+    RUN npm ci
+
+    FROM dev as source
+    COPY . ./
+    RUN npm run build:all
+
+    FROM source as test
+    RUN npm run test
+
+    FROM dev as preprod
+    RUN npm prune --production
+
+    FROM node as prod
+    ENV NODE_ENV production
+    WORKDIR /app
+    COPY --from=preprod /app/package*.json ./
+    COPY --from=preprod /app/node_modules ./node_modules
+    COPY --from=source /app/dist ./dist
+    USER node
+    ENTRYPOINT ["/bin/sh"]
+
+\end{docker}
+
+\subsection{Orchestrazione container}
+L'esecuzione dei i singoli componenti della piattaforma avviene in container separati utilizzando Docker Compose.
+Questo è un servizio di orchestrazione di container che permette di automatizzare la configurazione, la coordinazione
+e la gestione dei servizi. Docker compose si basa su un file di specifica in formato YAML, il docker-compose.yml file, che
+permette di definire un insieme di container da avviare e le loro proprietà a runtime.
+Ogni contaier viene considerato un servizio che interagisce con gli altri container secondo
+le direttive specificate. Tutti i container verranno poi eseguiti e configurati con il comando docker-compose up.
+
+Nella piattaforma ci saranno i servizi api, api-doc e mailer che costiuiscono i componenti funzionali per erogare i servizi.
+Poi ci sarà il servizio database che si basa su una immagine mongo e un servizio broker basato su una immagine rabbitmq.
+Tutti i servizi sono configurati per riavviarsi automaticamente in caso di errore. Nel caso del servizio database e broker è stato
+creato anche uno script per eseguire l'healtcheck in modo da verificare che l'avvio sia avvenuto con successo.
+
+L'utilizzo di docker compose permette quindi l'orchestrazione di vari container in modo rapido ed efficace. Fornisce la possibilità
+di gestire manualmente i singoli servizi e interconneterli tra loro. Offre inoltre la possibilità di specificare quanti container
+avviare per un servizio in modo da poterlo scalare facilmente.
+
+
