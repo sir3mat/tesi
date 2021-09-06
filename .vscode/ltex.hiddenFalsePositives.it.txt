@@ -16,3 +16,7 @@
 {"rule":"ER_01_001","sentence":"^\\QAnnunciato ufficialmente nel 2001 attravero il Manifesto Agile questo modello si contrappone al modello a cascata e\\E$"}
 {"rule":"ER_01_001","sentence":"^\\QEmerge quindi in modo evidente la contrapposizione con i classici modelli di sviluppo come il modello a cascata.\\E$"}
 {"rule":"MORFOLOGIK_RULE_IT_IT","sentence":"^\\QIn particolare è stato usato il metodo della containerizzazione per gestire l'installazione dei componenti nell'ambiente di produzione\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q./ RUN npm run build:all\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QFROM node as dev WORKDIR /app COPY package*.json ./ RUN npm ci FROM dev as source COPY .\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QFROM node as prod ENV NODE_ENV production WORKDIR /app COPY –from=preprod /app/package*.json ./ COPY –from=preprod /app/node_modules ./node_modules COPY –from=source /app/dist ./dist USER node ENTRYPOINT [\"/bin/sh\"]\\E$"}
+{"rule":"ST_03_001","sentence":"^\\QQuesto significa che ad ogni layer sarà associato un artefatto diverso rispetto al layer precedente e bisognerà quindi prestare attenzioni agli elementi effettivamente coinvolti nelle varie operazioni.\\E$"}

@@ -20,6 +20,11 @@ Il meccanismo che porta alla creazione di un container docker si basa sui seguen
     \item Container: elemento che include un'immagine. Può essere messo in esecuzione rendendo accessibile l'applicazione.
 \end{itemize}
 
+Di fondamentale importanza sono le immagini in quanto permettono di definire il contenuto del container.
+
+Nel seguito verrà descritto come sono state create e definite le immagini per la containerizzazione dei componenti della piattaforma
+e come avviene la loro orchestrazione.
+
 \subsection{Creazione immagini}
 
 Le immagini vengono create con dei file speciali detti DockerFile.
@@ -54,7 +59,7 @@ Questo copia i file compilati, le dipendenze e i file di specifica per poi inclu
     WORKDIR /app
     COPY package*.json ./
     RUN npm ci
-
+    
     FROM dev as source
     COPY . ./
     RUN npm run build:all
@@ -84,12 +89,12 @@ permette di definire un insieme di container da avviare e le loro proprietà a r
 Ogni contaier viene considerato un servizio che interagisce con gli altri container secondo
 le direttive specificate. Tutti i container verranno poi eseguiti e configurati con il comando docker-compose up.
 
-Nella piattaforma ci saranno i servizi api, api-doc e mailer che costiuiscono i componenti funzionali per erogare i servizi.
+Nella piattaforma ci saranno i servizi api, api-doc e mailer che costiuiscono i componenti funzionali.
 Poi ci sarà il servizio database che si basa su una immagine mongo e un servizio broker basato su una immagine rabbitmq.
 Tutti i servizi sono configurati per riavviarsi automaticamente in caso di errore. Nel caso del servizio database e broker è stato
-creato anche uno script per eseguire l'healtcheck in modo da verificare che l'avvio sia avvenuto con successo.
+creato anche uno script per eseguire l'healthcheck in modo da verificare che l'avvio sia avvenuto con successo.
 
-L'utilizzo di docker compose permette quindi l'orchestrazione di vari container in modo rapido ed efficace. Fornisce la possibilità
+L'utilizzo di docker compose permette l'orchestrazione di vari container in modo rapido ed efficace. Fornisce la possibilità
 di gestire manualmente i singoli servizi e interconneterli tra loro. Offre inoltre la possibilità di specificare quanti container
 avviare per un servizio in modo da poterlo scalare facilmente.
 
