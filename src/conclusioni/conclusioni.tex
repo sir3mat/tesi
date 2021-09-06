@@ -1,3 +1,26 @@
 \chapter{Conclusioni}
 \section{Valutazioni complessive}
+La piattaforma software è stata realizzata con lo scopo di divenire una piattaforma basata sul cloud
+in grado di soddisfare le esigenze di una vasta gamma di clienti attraverso l'implementazione
+di funzionalità personalizzate. Durante l'analisi del prodotto realizzato sono state descritte le tecnologie
+e gli strumenti utilizzati per implementare i componenti fondamentali della piattaforma nonchè
+il metodo di lavoro e gli automatismi adottati per erogare agilmente il software al cliente.
+
+Un esempio di utilizzo della piattaforma risiede nella Medical Adaptive Platform (MAP), un nuovo servizio
+cloud based erogato dall'azienda Fama Labs. Questo è una suite di soluzioni digitali per le Società Scientifiche,
+aziende biofarmaceutiche e professionisti sanitari che offre servizi per gestire l'amministrazione della società,
+organizzare eventi di formazione a distanza, corsi e congressi.
+
+La piattaforma realizzata verrà poi anche sfruttata dall'azienda Fama Labs come strumento per la gestione
+dei servizi erogati e delle risorse.
+
+
 \section{Sviluppi futuri}
+Sviluppi futuri riguardano il tema della scalabilità e un aumento del livello di disaccoppiamento tra i servizi erogati
+per favorire maggiormente una architettura orientata ai microservizi.
+In particolare, per quanto riguarda la scalabilità, verranno introdotte soluzioni di orschestrazione
+dei container basate su tecnologie come Docker Swarm o Kubernetes con lo scopo di poter fornire maggiori opzioni al
+cliente in fase contrattuale. Infatti in questa prima versione della piattaforma si ha che tutti i componenti risiedono in un unico host
+e nonostante sia possibile scalare i singoli servizi i limiti dati da questa situazione sono evidenti.
+Verranno quindi progettate soluzioni alternative in grado di poter gestire i vari componenti andando a sfruttare più host
+così da offrire un maggiore livello di scalabilità orizzontale sui servizi di maggiore interesse per il business del cliente.
