@@ -20,19 +20,23 @@
 Person(customer, "Utente", "Utente piattaforma")
 
 System_Boundary(c1, "Piattaforma") {
-    Container(spa, "Single-Page App", "Web browser", "Client per gestire le funzionalià del sistema attraverso browser","globe")
     Container(backend_api, "API Web", "Node.js", "Eroga servizi attraverso una interfaccia REST", "server")
+    Container(doc, "API Doc", "Node.js", "Documentazione endpoint","globe")
     Container(rabbit, "Message Broker","RabbitMQ","","rabbitmq")
     Container(mailer, "Microservizio Mailer","Node.js", "Template e invio di email","gear")
     ContainerDb(mongo, "Database", "NoSQL Database", "Salve le informazioni degli utenti, di autenticazione, ...", "database")
 }
 
+Container(spa, "Single-Page App", "Web browser", "Client per gestire le funzionalià del sistema attraverso browser","globe")
+
 System_Ext(ses, "Email System", "Amazon Simple Email Service","aws")
 
-Rel(customer, spa, "Usa", "HTTPS")
+Rel_L(customer, spa, "Usa", "HTTPS")
 
-Rel(spa, backend_api, "Usa", "HTTPS")
+Rel_D(spa, backend_api, "Usa", "HTTPS")
 Rel_Back_Neighbor(mongo,backend_api, "Legge e scrive su")
+Rel_L(doc,backend_api, "Usa", "HTTPS")
+
 Rel_D(backend_api, rabbit,"Invia messaggi", "AMQP")
 Rel_L(mailer, rabbit,"Recupera messaggi", "AMQP")
 Rel_U(mailer, ses, "Richiede invio email", "HTTPS")

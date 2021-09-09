@@ -1,0 +1,16 @@
+\section{Microservizio Doc}
+\subsection{Descrizione generale}
+Il microservizio Doc rende accessibile la documentazione della piattaforma.
+L'erogazione di questo servizio avviene grazie a un file conforme alla specifica OpenAPI \cite{openAPI},
+un insieme di direttive che permettono a una macchina di descrivere, produrre e utilizzare
+un servizio REST.
+
+In particolare questo microservizio fornisce una interfaccia interattiva realizzata con
+SwaggerUI \cite{SwaggerUI}, una tecnologia che genera un client che permette di comunicare con l'API direttamente
+dal browser. L'interfaccia è accessibile attraverso l'API Web che si comporta
+come API gateway, andando a fare il proxy delle richieste verso il microservizio Doc.
+
+Durante lo sviluppo della piattaforma la possibilità di interagire con l'API Web in modo rapido ha permesso
+di testare direttamente il comportamento degli endpoint. Inoltre il file di specifica, erogato dal microservizio,
+potrà poi essere utilizzato dal team frontend per ridurre i tempi necessari per integrare l'API nella applicazione client
+attravero Swagger Codegen \cite{SwaggerCodegen}, un generatore di librerie client.

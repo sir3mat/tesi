@@ -6,18 +6,15 @@ La motivazione principale che ha portato alla scelta delle tecnologie di seguito
 \subsection{Database}
 \subsubsection{MongoDB}
 MongoDB\cite{MongoDB} è un database management system (DBMS) che offre la possibilità di gestire database NoSQL
-\footnote{
-    dall'inglese \textit{Not only SQL}; non solo SQL.
-} basati sull'utilizzo di documenti flessibili per la gestione di dati in vario formato.\cite{IBM-MongoDB}
+basati sull'utilizzo di documenti flessibili per la gestione di dati in vario formato.\cite{IBM-MongoDB}
 
 L'unità fondamentale in un database basato su MongoDB sono i documenti. Questi rappresentano l'informazioni da memorizzare.
 Sono formattati in formato \textit{Binar y JSON} (BSON) e possono includere varie tipologie di dati che vanno dai comuni
 valori numerici o stringhe sino ai più complessi oggetti annidati e liste.
-La particolarità di questi documenti è che non hanno uno schema rigido: possono subire delle modifiche nel tempo. Permettono quindi
-ai dati di adattarsi alla applicazione e non viceversa. Questo offre un notevole vantaggio per lo sviluppatore
-in quanto può strutturare i dati nella maniera più consona per facilitarne l'utilizzo.
-Questi documenti vengono poi raccolti in collezioni che vengono usate come archivi per documenti facenti parte di una stessa categoria d'informazione.
-Tutti questi dati possono poi essere ovviamente sottoposti a query e ad aggregazioni.
+La particolarità di questi documenti è che non hanno uno schema rigido: possono subire delle modifiche nel tempo.
+Permettono quindi di adattare i dati alla applicazione e non viceversa.
+Questo offre un notevole vantaggio per lo sviluppatore in quanto può strutturare i dati nella maniera più consona per facilitarne l'utilizzo.
+Inoltre i documenti facenti parti di una stessa categoria vengono poi raccolti in collezioni e tutti questi dati possono poi essere ovviamente sottoposti a query e ad aggregazioni.
 
 MongoDB risulta essere anche molto performante grazie alla possibilità d'immagazzinare documenti innestati, riducendo l'attività I/O del sistema DB,
 e all'utilizzo del meccanismo d'indicizzazione che permette di effettuare query molto velocemente.
