@@ -43,7 +43,7 @@ Nel dettaglio:
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{amqModel.png}
+    \includegraphics[scale=0.385]{amqModel.png}
     \caption{Modello AMQ}
     \label{fig:AmqModel}
 \end{figure}
@@ -55,6 +55,13 @@ disaccoppiare la fase di gestione della richiesta utente dalla fase di renderizz
 Vista la possibilità di dover gestire numerose email contemporaneamente, è stato deciso di utilizzare il modello a \textit{consumers} concorrenti (\textit{Competing Consumers Pattern}) \cite{CompetingConsumers}.
 Questo prevede la creazione di molteplici \textit{consumers} collegati a uno stesso canale in modo tale che questi possano processare più messaggi contemporaneamente.
 Quando un messaggio arriva sul canale, uno qualsiasi dei \textit{consumers} potrebbe riceverlo e processarlo andando così a competere l'uno con l'altro.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.45]{competing-consumer.png}
+    \caption{Rappresentazione semplificata del \textit{Competing Consumer pattern}}
+    \label{fig:CompetingConsumers}
+\end{figure}
 
 Per implementare questo modello si è deciso di utilizzare i seguenti elementi:
 \begin{itemize}
