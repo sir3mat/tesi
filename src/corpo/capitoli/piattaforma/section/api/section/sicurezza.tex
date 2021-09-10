@@ -22,7 +22,7 @@ Queste permettono di aggiugnere all'input della funzione di \textit{hash} un val
 L'aggiunta di questo valore di \textit{salt} rende la funzione di \textit{hash} non deterministica ed
 evita così di generare \textit{message digest} uguali per lo stesso input.
 
-Nella piattaforma è stata utilizzata come funzione di hash \textit{bcrypt}\cite{bcrypt}. Questa funzione richiede un salt, un parametro costo e una chiave primaria (la password) e ha come
+Nella piattaforma è stata utilizzata come funzione di hash \textit{bcrypt} \cite{bcrypt}. Questa funzione richiede un salt, un parametro costo e una chiave primaria (la password) e ha come
 caratteristica il fatto che il processo di hashing avviene in più cicli (tanti quanto il costo). Questo significa che il processo di generazione sarà tanto più lento quanto è alto il valore
 costo passato alla funzione e ciò permette di adeguarne l'efficacia nei confronti della potenza di calcolo dei computer che cresce ogni anno.
 

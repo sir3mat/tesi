@@ -1,15 +1,14 @@
 \subsection{Descrizione generale}
-L'API web è il componente della piattaforma che permette di gestire le richieste degli utenti fornendo degli
-endpoint per poter svolgere varie operazioni.
+L'API web è il componente della piattaforma che permette di gestire le richieste degli utenti attraverso una interfaccia REST.
 
-Essendo la piattaforma ideata come rappresentazione di una base riutilizzabile in vari contesti aziendali è stato deciso d'implementare alcuni servizi
-generici tipicamente richiesti come l'autenticazione e l'autorizzazione degli utenti, l'accesso a servizi demo sotto previa registrazione, l'invio di notifiche e
+Essendo la piattaforma ideata come rappresentazione di una base riutilizzabile in vari contesti aziendali sono stati implementati alcuni dei servizi
+tipicamente richiesti come l'autenticazione e l'autorizzazione degli utenti, l'accesso a servizi demo sotto previa registrazione, l'invio di notifiche e
 la gestione delle informazioni dell'utente. Questo permetterà future implementazioni personalizzate riducendo notevolmente i costi e i tempi di sviluppo potendo così dedicare
 tutte le risorse sulle funzionalità richieste dalla clientela.
 
 L'applicazione è basata su Node ed è stato utilizzato il framework Nest.
 La comunicazione tra client e API web verrà gestita con la suite di protocolli TCP/IP e in particolare verrà usato il protocollo HTTPS per gestire
 le richieste e le risposte.
-Si interfaccia con il microservizio del Mailer, attraverso un message broker RabbitMQ, per gestire l'invio di email e con il database server, basato su MongoDB, per gestire i dati necessari
+Si interfaccia con il microservizio del Mailer, attraverso un \textit{message broker} RabbitMQ, per gestire l'invio di email e con il database server, basato su MongoDB, per gestire i dati necessari
 per erogare i servizi richiesti. Inoltre interagisce con il microservizio Doc per mostrare la documentazione degli endpoint della piattaforma attraverso
 una interfaccia interattiva.

@@ -6,11 +6,11 @@ un insieme di direttive che permettono a una macchina di descrivere, produrre e 
 un servizio REST.
 
 In particolare questo microservizio fornisce una interfaccia interattiva realizzata con
-SwaggerUI \cite{SwaggerUI}, una tecnologia che genera un client che permette di comunicare con l'API direttamente
+SwaggerUI \cite{SwaggerUI}, una tecnologia che partendo dal file OpenAPI genera un client in grado comunicare con l'API, direttamente
 dal browser. L'interfaccia è accessibile attraverso l'API web che si comporta
 come API gateway, andando a fare il proxy delle richieste verso il microservizio Doc.
 
 Durante lo sviluppo della piattaforma la possibilità di interagire con l'API web in modo rapido ha permesso
 di testare direttamente il comportamento degli endpoint. Inoltre il file di specifica, erogato dal microservizio,
-potrà poi essere utilizzato dal team frontend per ridurre i tempi necessari per integrare l'API nella applicazione client
+potrà poi essere utilizzato dal team front-end per ridurre i tempi necessari per integrare l'API nella applicazione client
 attravero Swagger Codegen \cite{SwaggerCodegen}, un generatore di librerie client.

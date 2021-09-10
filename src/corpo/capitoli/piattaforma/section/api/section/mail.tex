@@ -1,5 +1,5 @@
 \subsection{Mail module}
-Il modulo mail ha la responsabilità di gestire l'invio di messaggi al message broker per richiedere
+Il modulo mail ha la responsabilità di gestire l'invio di messaggi al \textit{message broker} per richiedere
 l'invio di una mail.
 
 Viene esposto un servizio che permette ad altri componenti di richiedere l'invio di mail al microservizio mailer.
@@ -8,8 +8,8 @@ nel messaggio che verrà recapitato al microservizio mailer per permettergli di 
 template renderizzare e come inviare la mail.
 
 Questo servizio si occuperà poi di incapsulare tutti i dettagli necessari per poter comunicare con il
-message broker. In particolare viene utilizzato un modulo wrapper della libreria \textit{amqplib} che permette di comunicare
-con il message broker utilizzato nella piattaforma.
+\textit{message broker}. In particolare viene utilizzato un modulo wrapper della libreria \textit{amqplib} che permette di comunicare
+con il \textit{message broker} utilizzato nella piattaforma.
 Con l'utilizzo di questo modulo è possibile definire un meccanismo interno per inviare le mail
 attraverso l'uso di una interfaccia. Inoltre si mantiene il componente aperto alle estensioni
-in caso si voglia utilizzare un protocollo diverso per comunicare con il message broker.
+in caso si voglia utilizzare un protocollo diverso per comunicare con il \textit{message broker}.

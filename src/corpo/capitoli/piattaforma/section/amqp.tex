@@ -8,11 +8,11 @@ e per operazioni che richiedono molto tempo in modo da ridurre il carico di lavo
 Nel dettaglio un \textit{message broker} è un software che implementa il paradigma \textit{Message Oriented Middleware} (MOM) e offre servizi per distribuire i messaggi (routing e politiche di recapito).
 Ciò significa che verrà usato come \textit{gateway} di livello applicativo in un sistema in cui le applicazioni comunicano utilizzando messaggi
 che vengono inseriti in code e dove vengono utilizzati dei nodi di smistamento per distribuirli verso la destinazione.
-Questa tipologia di sistemi è detta \textit{message-queuing system}\cite{MessageBroker-Book} in cui è garantita la persistenza
+Questa tipologia di sistemi è detta \textit{message-queuing system} \cite{MessageBroker-Book} in cui è garantita la persistenza
 grazie all'utilizzo delle code e la possibilità di creare topologie punto-punto o punto-multipunto con in nodi di smistamento.
 In particolare avremo che il \textit{message broker} riceve dei messaggi da applicazioni dette \textit{publishers} e li indirizzerà verso applicazioni dette \textit{consumers} che processeranno questi messaggi.
 
-Nella piattaforma è stato deciso di utilizzare un broker RabbitMQ\cite{rabbitMQ} usando come protocollo di messaggistica l'\textit{Advanced message Queuing Protocol 0-9-1}(AMQP)\cite{amqp},
+Nella piattaforma è stato deciso di utilizzare un broker RabbitMQ \cite{rabbitMQ} usando come protocollo di messaggistica l'\textit{Advanced message Queuing Protocol 0-9-1}(AMQP) \cite{amqp},
 per permettere alla API d'interagire con il microservizio del Mailer.
 
 \subsection{Protocollo di messaggistica}
@@ -52,18 +52,18 @@ Nel dettaglio:
 \subsection{Principi di design}
 Nella piattaforma è stato utilizzato un broker RabbitMQ per supportare l'interazione tra API e Mailer e
 disaccoppiare la fase di gestione della richiesta utente dalla fase di renderizzazione e invio email al destinatario.
-Vista la possibilità di dover gestire numerose email contemporaneamente, è stato deciso di utilizzare il modello a \textit{consumers} concorrenti (Competing Consumers Pattern)\cite{CompetingConsumers}.
-Questo prevede la creazione di molteplici consumers collegati a uno stesso canale in modo tale che questi possano processare più messaggi contemporaneamente.
-Quando un messaggio arriva sul canale, uno qualsiasi dei consumers potrebbe riceverlo e processarlo andando così a competere l'uno con l'altro.
+Vista la possibilità di dover gestire numerose email contemporaneamente, è stato deciso di utilizzare il modello a \textit{consumers} concorrenti (\textit{Competing Consumers Pattern}) \cite{CompetingConsumers}.
+Questo prevede la creazione di molteplici \textit{consumers} collegati a uno stesso canale in modo tale che questi possano processare più messaggi contemporaneamente.
+Quando un messaggio arriva sul canale, uno qualsiasi dei \textit{consumers} potrebbe riceverlo e processarlo andando così a competere l'uno con l'altro.
 
 Per implementare questo modello si è deciso di utilizzare i seguenti elementi:
 \begin{itemize}
     \itemsep0em
-    \item \textit{Task Queue}: coda usata per distribuire su più consumers varie operazioni che richiedono molto tempo.
+    \item \textit{Task Queue}: coda usata per distribuire su più \textit{consumers} varie operazioni che richiedono molto tempo.
     \item Distribuzione \textit{Round Robin}: il broker manderà un messaggio a ogni \textit{consumer} in maniera sequenziale (ogni \textit{consumer} riceverà in media lo stesso numero di messaggi). Questo garantisce che tutti i messaggi verranno recapitati almeno una volta.
     \item \textit{Message acknowledgment} (ACK): vengono utilizzati degli ACK per confermare la corretta elaborazione di un messaggio da parte di un \textit{consumer}. Se l'ACK non viene inviato al broker, il messaggio verrà rimesso in coda.
 \end{itemize}
-Grazie a questi elementi è stato possibile creare una architettura di messaggistica in grado di scalare orizzontalmente con facilità (aggiungendo dei consumers), disaccoppiata, affidabile e resiliente.
+Grazie a questi elementi è stato possibile creare una architettura di messaggistica in grado di scalare orizzontalmente con facilità (aggiungendo dei \textit{consumers}), disaccoppiata, affidabile e resiliente.
 
 
 

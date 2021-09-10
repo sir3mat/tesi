@@ -11,26 +11,26 @@ potrebbe portare alla generazione di conflitti fra le modifiche apportare dai va
 Per risolvere questo problema è stato deciso di implementare un processo di convalida
 tramite il quale è possibile garantire la compatibilità fra gli aggiornamenti apportati al software dai membri
 del team.
-Questo processo viene eseguito ogni volta che uno sviluppatore effettua la push dei commit sul repository
-condiviso e, nel nostro caso, implica la compilazione del software e l'esecuzione  di unit e integration test.
+Questo processo viene eseguito ogni volta che uno sviluppatore effettua la pubblicazione dei \textit{commit} sul repository
+condiviso e, nel nostro caso, avvia la compilazione del software e l'esecuzione  di unit e integration test.
 Questo permette di verificare che le nuove modifiche non introducano problemi nel software.
 
 Il flusso di deployment continuo è invece finalizzato ad automatizzare il rilascio di software pronto ad essere
 distribuito nell'ambiente di produzione.
-Nello sviluppo della piattaforma il processo di deployment continuo prevede la creazione di una build production ready
-e la sua pubblicazione sul production server. Questo processo automatico ha il vantaggio di rendere
+Nello sviluppo della piattaforma il processo di deployment continuo prevede la creazione di una \textit{build production ready}
+e la sua pubblicazione sul \textit{production server}. Questo processo automatico ha il vantaggio di rendere
 attiva una modifica apportata da uno sviluppatore poco dopo che è stata scritta. Ciò permette di ricevere un
 feedback immediato dal cliente e con una cadenza più costante; potendo così apportare
 le dovute modifiche al software prima di procedere all'implementazione di nuove funzionalità.
 
-Nella piattaforma queste procedure di automazione sono state realizzate sfruttando Jenkins, un automation server
+Nella piattaforma queste procedure di automazione sono state realizzate sfruttando Jenkins, un \textit{automation server}
 che permette di definire un flusso di operazioni da eseguire per supportare i processi di integrazione e deployment continuo.
 La pipeline viene eseguita ogni volta che un commit viene pubblicato nel repository condiviso sulla piattaforma GitLab ed
-è stata suddivisa in tre fasi: build, test e deploy.
-La fase di build prevede il checkout del codice dal repository remoto con la successiva build dei componenti attraverso lo strumento docker compose.
-La fase di test viene utilizzata per validare le modidiche apportate al codice. Al termine si ha la fase di deploy in cui vengono pubblicate
-le immagini sul registro privato e vengono installati gli strumenti necessari sul production server per eseguire la piattaforma. Anche in questo caso si fa
-affidamento a docker compose per mettere in esecuzione i container sul production server.
+è stata suddivisa in tre fasi: \textit{build}, \textit{test} e \textit{deploy}.
+La fase di \textit{build} prevede il checkout del codice dal repository remoto con la successiva build dei componenti attraverso lo strumento Docker Compose.
+La fase di \textit{test} viene utilizzata per validare le modidiche apportate al codice. Al termine si ha la fase di \textit{deploy} in cui vengono pubblicate
+le immagini sul registro privato e vengono installati gli strumenti necessari sul \textit{production server} per eseguire la piattaforma. Anche in questo caso si fa
+affidamento a Docker Compose per mettere in esecuzione i container sul \textit{production server}.
 In caso di successo o fallimento della pipeline è stato inoltre predisposto un meccanismo di messagistica per notificare
 gli sviluppatori riguardante l'esito della procedura.
 

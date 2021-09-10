@@ -3,7 +3,7 @@ La piattaforma è organizzata in moduli relazionati tra loro prestando attenzion
 alla creazione di componenti coesi, disaccoppiati e che rispettino i principi SOLID.
 Un modulo esiste per incapsulare dei servizi che vengono erogati attraverso dei componenti
 che collaborano per portare a termine il compito richiesto. Ciascuno di essi può definire i moduli da importare per sfruttarne i servizi, i controller da esporre per gestire le richieste e i servizi che esporta.
-Inoltre un modulo espone una interfaccia software costituita dai servizi che esporta e una interfaccia REST costituita dagli endpoint, definiti nei controller esposti,
+Di conseguenza un modulo espone una interfaccia software costituita dai servizi che esporta e una interfaccia REST costituita dagli endpoint, definiti nei controller esposti,
 che permettono di interagire con l'applicazione attraverso richieste HTTP.
 
 Nella piattaforma avremo i seguenti moduli funzionali:
@@ -12,7 +12,7 @@ Nella piattaforma avremo i seguenti moduli funzionali:
     \item Auth Module: si occupa di tutti gli aspetti inerenti alla autenticazione e autorizzazione degli utenti.
     \item User Module: si occupa della gestione delle informazioni degli utenti.
     \item Demo Module: permette la registrazione a servizi in versione demo.
-    \item Mail Module: permette di gestire le richieste di invio email al message broker.
+    \item Mail Module: permette di gestire le richieste di invio email al \textit{message broker}.
 \end{itemize}
 Ognuno di questi moduli è organizzato con una architettura a tre strati (vedi Figura \ref{fig:three-tier}) così definita:
 \begin{itemize}
