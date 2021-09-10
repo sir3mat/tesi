@@ -4,9 +4,9 @@
 Il microservizio mailer è il componente della piattaforma che permette inviare delle email.
 
 L'applicazione è basata su Node ed è stato utilizzato il framework Nest.
-Si interfaccia con l'API Web, attraverso un message broker RabbitMQ, per recuperare i messaggi contenenti le informazioni utili per generare la email e con il servizio esterno Simple Email Service per inviare le email.
+Si interfaccia con l'API web, attraverso un message broker RabbitMQ, per recuperare i messaggi contenenti le informazioni utili per generare la email e con il servizio esterno Simple Email Service per inviare le email.
 
-In fase di progettazione è stato deciso di disaccoppiare questa funzionalità dalla API Web a causa della complessità necessaria per effettuare il render di una mail e per inviare il messaggio al destinatario.
+In fase di progettazione è stato deciso di disaccoppiare questa funzionalità dalla API web a causa della complessità necessaria per effettuare il render di una mail e per inviare il messaggio al destinatario.
 Inoltre, essendo il microservizio un componente indipendete dalla API web, sarà possibile scalarlo orizzontalmente in modo da poter gestire in maniera più efficace le operazioni richieste.
 
 \subsection{Principi di design}
@@ -19,7 +19,7 @@ Il template service si occupa di effettuare l'operazione di rendering di una mai
 sulla base di un set di campi prefissati. L'utilizzo di questa tecnologia ha permesso di definire la struttura di un documento HTML, il cui contenuto verrà poi creato dinamicamente sulla base delle informazioni contenute nel messaggio, e che
 verrà usato come corpo della email da inviare.
 
-Infine il transport service ha il compito di incapsulare la logica di invio della mail. Per supportare questa operazione è stato deciso di integrare il servizio esterno Simple Email Service, facente parte degli Amazon Web Services.
+Infine il transport service ha il compito di incapsulare la logica di invio della mail. Per supportare questa operazione è stato deciso di integrare il servizio esterno Simple Email Service, facente parte degli Amazon web Services.
 
     [schemino]
 

@@ -2,7 +2,7 @@
 Il modulo auth si occupa di tutti i servizi inerenti alla autenticazione e autorizzazione.
 In particolare supporta le operazioni di registrazione e accesso alla piattaforma (anche attraverso provider di terze parti), recupero password e verifica dell'account.
 
-L'autenticazione degli all'interno della API web si basa su una coppia di credenziali: email e password.
+L'autenticazione all'interno della API web si basa su una coppia di credenziali: email e password.
 Questo metodo permette l'identificazione degli utenti sulla base di determinate credenziali e la
 verifica della legittimità di una utenza.
 
@@ -34,7 +34,7 @@ rendendole disponibili solo agli utenti autorizzati.
 Le policy definite all'interno della API web si basano sul protocollo di autorizzazione OAuth 2.0 \cite{rfc6749} e sull'utilizzo di un
 modello di controllo sugli accessi.
 
-Nel dettaglio OAuth 2.0 è un framework autorizzativo standard per applicazioni Web.
+Nel dettaglio OAuth 2.0 è un framework autorizzativo standard per applicazioni web.
 Scopo del framework è delegare a un'utenza qualsiasi l'accesso limitato a una risorsa di proprietà di un'entità differente (detta \textit{resource owner}).
 
 Gli attori coinvolti nell'architettura del framework sono:
@@ -51,7 +51,7 @@ Gli attori coinvolti nell'architettura del framework sono:
 Altri elementi significativi sono l'\textit{access token} e l'\textit{authorization grant}.
 
 Il primo è una stringa che rappresenta le credenziali necessarie per ottenere l'accesso alla risorsa protetta sul resource server.
-Pratica comune è utilizzare il formato Json Web Token\cite{rfc7519} (JWT) che permette di codificare un oggetto JSON in un token
+Pratica comune è utilizzare il formato Json web Token\cite{rfc7519} (JWT) che permette di codificare un oggetto JSON in un token
 che può essere cifrato e firmato con vari algoritmi (HMAC, RSA). Questo permette di trasmettere in modo sicuro e compatto delle informazioni
 fra due interlocutori garantendone integrità e confidenzialità.
 
