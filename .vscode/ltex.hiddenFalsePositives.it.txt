@@ -20,3 +20,14 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QFROM node as dev WORKDIR /app COPY package*.json ./ RUN npm ci FROM dev as source COPY .\\E$"}
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QFROM node as prod ENV NODE_ENV production WORKDIR /app COPY –from=preprod /app/package*.json ./ COPY –from=preprod /app/node_modules ./node_modules COPY –from=source /app/dist ./dist USER node ENTRYPOINT [\"/bin/sh\"]\\E$"}
 {"rule":"ST_03_001","sentence":"^\\QQuesto significa che ad ogni layer sarà associato un artefatto diverso rispetto al layer precedente e bisognerà quindi prestare attenzioni agli elementi effettivamente coinvolti nelle varie operazioni.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdocker keywords=FROM, RUN, COPY, ADD, ENTRYPOINT, CMD, ENV, ARG, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER, keywordstyle=, identifierstyle=, sensitive=false, comment=[l], commentstyle=, stringstyle=, morestring=[b]', morestring=[b]\"\\E$"}
+{"rule":"ST_04_001","sentence":"^\\Qdocker-compose-2 keywords=version, volumes, services, keywordstyle=, keywords=[2]image, environment, ports, container_name, ports, links, build, keywordstyle=[2], identifierstyle=, sensitive=false, comment=[l], commentstyle=, stringstyle=, morestring=[b]', morestring=[b]\"\\E$"}
+{"rule":"ST_04_001","sentence":"^\\Q[auto counter]docker[2][] colframe=gray, listing only, listing options=basicstyle=,language=docker, title=Listing : #2, #1\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q[auto counter]docker[2][] colframe=gray, listing only, listing options=basicstyle=,language=docker, title=Listing : #2, #1\\E$"}
+{"rule":"WHITESPACE_PUNCTUATION","sentence":"^\\Q[auto counter]docker[2][] colframe=gray, listing only, listing options=basicstyle=,language=docker, title=Listing : #2, #1\\E$"}
+{"rule":"ST_04_001","sentence":"^\\Q[auto counter]docker-compose[2][] colframe=gray, listing only, listing options=basicstyle=,language=docker-compose-2, title=Listing : #2, #1\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q[auto counter]docker-compose[2][] colframe=gray, listing only, listing options=basicstyle=,language=docker-compose-2, title=Listing : #2, #1\\E$"}
+{"rule":"WHITESPACE_PUNCTUATION","sentence":"^\\Q[auto counter]docker-compose[2][] colframe=gray, listing only, listing options=basicstyle=,language=docker-compose-2, title=Listing : #2, #1\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QFROM node as dev WORKDIR /app COPY package*.json ./ RUN npm ci\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QFROM dev as source COPY .\\E$"}
+{"rule":"ST_03_001","sentence":"^\\QIl flusso di deployment continuo è invece finalizzato ad automatizzare il rilascio di software pronto ad essere distribuito nell'ambiente di produzione.\\E$"}

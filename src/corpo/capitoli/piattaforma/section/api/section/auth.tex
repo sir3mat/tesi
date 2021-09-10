@@ -2,6 +2,7 @@
 Il modulo auth si occupa dei servizi autenticazione e autorizzazione.
 In particolare supporta le operazioni di registrazione e accesso alla piattaforma (anche attraverso provider di terze parti), recupero password e verifica dell'account.
 
+\subsubsection{Autenticazione}
 L'autenticazione all'interno della API web si basa su una coppia di credenziali: email e password.
 Questo metodo permette l'identificazione degli utenti sulla base di determinate credenziali e la
 verifica della legittimità di una utenza.
@@ -27,8 +28,8 @@ Nella piattaforma è stata utilizzata come funzione di hash \textit{bcrypt} \cit
 caratteristica il fatto che il processo di hashing avviene in più cicli (tanti quanto il costo). Questo significa che il processo di generazione sarà tanto più lento quanto è alto il valore
 costo passato alla funzione e ciò permette di adeguarne l'efficacia nei confronti della potenza di calcolo dei computer che cresce ogni anno.
 
-Per quanto riguarda l'autorizzazione è stata garantire la riservatezza e la disponibilità dei dati
-attraverso l'implementazione di policy finalizzate a restringere l'accesso alle risorse,
+\subsubsection{Autorizzazione}
+L'autorizzazione viene usata per garantire la riservatezza e la disponibilità dei dati attraverso l'implementazione di policy finalizzate a restringere l'accesso alle risorse,
 rendendole disponibili solo agli utenti autorizzati.
 Le policy definite all'interno della API web si basano sul protocollo di autorizzazione OAuth 2.0 \cite{rfc6749} e sull'utilizzo di un
 modello di controllo sugli accessi.
