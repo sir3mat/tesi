@@ -1,6 +1,8 @@
 \subsection{Auth Module}
 Il modulo auth si occupa dei servizi autenticazione e autorizzazione.
 In particolare supporta le operazioni di registrazione e accesso alla piattaforma (anche attraverso provider di terze parti), recupero password e verifica dell'account.
+Il modulo auth dipende dal modulo user per gestire le procedure di registrazione e
+dal modulo mail per inviare le notifiche di verifica dell'account e per il recupero della password.
 
 \subsubsection{Autenticazione}
 L'autenticazione all'interno della API web si basa su una coppia di credenziali: email e password.
@@ -103,6 +105,3 @@ Inoltre è presente anche una implementazione di un modello di controllo sugli a
 determinano chi ha il diritto di accedere a una risorsa.
 Nel dettaglio è possibile rendere una risorsa accessibile solo al proprietario, a un qualsiasi utente autenticato o a tutti.
 Inoltre è anche possibile definire il controllo di accesso sulla base del ruolo di un utente.
-
-Il modulo auth dipende dal modulo user per gestire le procedure di registrazione e
-dal modulo mail per inviare le notifiche di verifica dell'account e per il recupero della password.
