@@ -47,6 +47,7 @@ Gli attori coinvolti nell'architettura del framework sono:
     \item \textit{Authorization Server}: è il server o il modulo applicativo che rilascia i token di accesso (detti \textit{access token}) al client dopo aver
           autenticato con successo il \textit{resource owner} e aver ottenuto l'autorizzazione.
     \item  \textit{Client}: è l'applicazione che richiede l'accesso alla risorsa. Può essere sia una applicazione \textit{client-side} che \textit{server-side}.
+          Nel contesto della piattaforma l'API Web ricopre questo ruolo.
           Deve registrarsi presso l'\textit{authorization server} per ottenere delle credenziali: \textit{client secret} e \textit{client identifier}.
 \end{itemize}
 
@@ -78,8 +79,8 @@ Il processo di base definito dal protocollo per autenticare il \textit{client} e
     \label{fig:OAuth2.0}
 \end{figure}
 
-Nella piattaforma è stato deciso di utilizzare l'\textit{authorization grant} di tipo \textit{authorization code} per supportare le procedure
-di registrazione degli utenti attraverso i provider di terze parti (Google e Facebook).
+Nella piattaforma è stato deciso di utilizzare l'\textit{authorization grant} di tipo \textit{authorization code} (vedi Figura \ref{fig:AuthCodeFlow}) per supportare le procedure
+di registrazione e login degli utenti attraverso i provider di terze parti (Google e Facebook).
 
 Questo meccanismo disaccoppia completamente le credenziali utente dall'autorizzazione per accedere.
 In particolare si basa sull'introduzione di un nuovo elemento chiamato \textit{authorization code}
@@ -91,7 +92,12 @@ A questo punto il \textit{client} effettuerà la richiesta per ottenere la risor
 I benefici di questa tipologia di \textit{authorization grant} sono dovuti al fatto che il \textit{resource owner} si autentica direttamente con il \textit{authorization server}
 e di conseguenza le sue credenziali non vengono mai condivise con il \textit{client}.
 
-[schema oauth flow]
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.35]{oauth2.authorization-code.eps}
+    \caption{Authorization Code Flow del protocollo OAuth 2.0}
+    \label{fig:AuthCodeFlow}
+\end{figure}
 
 Nella piattaforma è stato poi deciso di sfruttare gli \textit{access token} anche per gestire le autorizzazioni
 degli utenti interni alla piattaforma. Nello specifico vengono usati insieme a un \textit{refresh token} che permette

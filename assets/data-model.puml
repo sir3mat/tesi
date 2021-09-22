@@ -1,19 +1,7 @@
 @startuml data-model
-skinparam roundCorner 10
-skinparam shadowing false
-skinparam class {
-  BackgroundColor f3f4f8
-  ArrowColor b3b5bd
-  BorderColor 9496a1
-  FontColor 282a3a
-}
+!include styles.puml
 
-skinparam enum {
-  BackgroundColor f3f4f8
-  ArrowColor b3b5bd
-  BorderColor 9496a1
-  FontColor 282a3a
-}
+skinparam roundCorner 10
 
 
 class User <<collection>> {

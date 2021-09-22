@@ -1,0 +1,50 @@
+@startuml
+
+!include styles.puml
+
+actor "Resource Owner" as USER
+participant "Client" as CLIENT
+participant "Authorization Server" as AUTH
+participant "Resource Server" as API
+
+USER -> CLIENT: Richiesta di autenticazione
+activate CLIENT
+CLIENT --> USER: Reidirect verso \n/authorize?response_type=code&client_id=<&x>&redirect_uri=<&x>&scope=<&x>
+deactivate CLIENT
+USER -> AUTH: GET /authorize?response_type=code&client_id=<&x>&redirect_uri=<&x>&scope=<&x>
+activate AUTH
+USER -> AUTH: Inserisce credentiali
+USER -> AUTH: Fornisce i permessi richiesti
+AUTH --> USER: Redirect verso \n<b>redirect_uri</b>?code=<&x>
+deactivate AUTH
+USER -> CLIENT: GET <b>redirect_uri</b>?code=<&x>
+activate CLIENT
+CLIENT -> AUTH: POST /token \ngrant_type=authorization_code\ncode=<&x>\nredirect_uri=<&x>\nclient_id=<&x>
+activate AUTH
+AUTH -> AUTH: Validazione authorization_code,\n redirect_uri e client_id
+AUTH --> CLIENT: access_token=<&x>\ntoken_type=Bearer\nexpires_in=<&x>\nrefresh_token=<&x>
+deactivate AUTH
+alt Authorization code OK
+CLIENT --> USER: 200 OK
+else Authorization code scaduto
+CLIENT --> USER: 401 Not Authorized
+end
+deactivate CLIENT
+
+...  ...
+
+USER -> CLIENT: Richiede accesso alla risorsa
+activate CLIENT
+CLIENT -> CLIENT: Validazione access_token
+activate CLIENT
+deactivate CLIENT
+
+CLIENT -> API: Richiesta accesso alla risorsa
+activate API
+API -> API: Recupera risorsa
+API --> CLIENT: Risorsa
+deactivate API
+CLIENT --> USER: Risorsa
+deactivate CLIENT
+
+@enduml

@@ -5,11 +5,12 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Architettura piattaforma}}{4}{figure.2.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces MongoDB Class Diagram}}{18}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema riassuntivo della architettura \textit {three-tier}}}{19}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Flusso del protocollo OAuth 2.0}}{22}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Modello AMQ}}{26}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Rappresentazione semplificata del \textit {Competing Consumer pattern}}}{26}{figure.4.5}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces MongoDB Class Diagram}}{17}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema riassuntivo della architettura \textit {three-tier}}}{20}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Flusso del protocollo OAuth 2.0}}{23}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Authorization Code Flow del protocollo OAuth 2.0}}{24}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Modello AMQ}}{27}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Rappresentazione semplificata del \textit {Competing Consumer pattern}}}{28}{figure.4.6}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
