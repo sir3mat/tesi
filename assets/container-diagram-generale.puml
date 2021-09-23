@@ -27,7 +27,7 @@ System_Boundary(c1, "Piattaforma") {
     ContainerDb(mongo, "Database", "NoSQL Database", "Salve le informazioni degli utenti, di autenticazione, ...", "database")
 }
 
-Container(spa, "Single-Page App", "Web browser", "Client per gestire le funzionalià del sistema attraverso browser","globe")
+Container(spa, "Single-Page App", "Web browser", "Client per gestire le funzionalità del sistema attraverso browser","globe")
 
 System_Ext(ses, "Email System", "Amazon Simple Email Service","aws")
 
