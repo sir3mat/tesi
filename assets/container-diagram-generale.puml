@@ -21,7 +21,7 @@ Person(customer, "Utente", "Utente piattaforma")
 
 System_Boundary(c1, "Piattaforma") {
     Container(backend_api, "API Web", "Node.js", "Eroga servizi attraverso una interfaccia REST", "server")
-    Container(doc, "API Doc", "Node.js", "Documentazione endpoint","globe")
+    Container(doc, "Microservizio Doc", "Node.js", "Documentazione endpoint","globe")
     Container(rabbit, "Message Broker","RabbitMQ","","rabbitmq")
     Container(mailer, "Microservizio Mailer","Node.js", "Template e invio di email","gear")
     ContainerDb(mongo, "Database", "NoSQL Database", "Salve le informazioni degli utenti, di autenticazione, ...", "database")
