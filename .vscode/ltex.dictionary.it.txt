@@ -223,7 +223,7 @@ Operations
 Development
 operations
 interfunzionale
-efficenza
-efficente
+efficienza
+efficiente
 tolerance
 fault

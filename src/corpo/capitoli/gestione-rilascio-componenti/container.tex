@@ -7,15 +7,15 @@ Questi vengono eseguiti direttamente dal kernel della macchina host e non richie
 macchine virtuali. Questo rende i container molto più leggeri. Altra caratteristica è che i singoli container,
 quando eseguiti, vengono gestiti come processi separati. Questo significa che godono di un elevato livello di isolamento
 con la macchina host e gli altri processi garantendone la sicurezza.
-Inoltre la gestione delle applicazioni in container permette di velocizzare e rendere più efficente il ciclo di sviluppo del software in quanto
-ne aumenta la portabilitità, rendendo più semplice le fasi di build, test e deploy.
+Inoltre la gestione delle applicazioni in container permette di velocizzare e rendere più efficiente il ciclo di sviluppo del software in quanto
+ne aumenta la portabilità, rendendo più semplice le fasi di build, test e deploy.
 
 Il meccanismo che porta alla creazione di un container Docker si basa sui seguenti elementi:
 \begin{itemize}
     \itemsep0em
-    \item Docker Engine: server o processo deamon che effettua tutte le operazioni necessarie per gestire container Docker.
+    \item Docker Engine: server o processo daemon che effettua tutte le operazioni necessarie per gestire container Docker.
     \item Docker CLI: interfaccia a riga di comando con cui interagire con il server Docker.
-    \item Immagine: elemento che incapsula un insieme di direttive e di software che permettodno di creare il container.
+    \item Immagine: elemento che incapsula un insieme di direttive e di software che permettono di creare il container.
     \item Registro: permette di salvare le immagini in raccolte pubbliche o private. Viene usato DockerHub, un \textit{image registry} accessibile da remoto.
     \item Container: elemento che include un'immagine. Può essere messo in esecuzione rendendo accessibile l'applicazione.
 \end{itemize}
@@ -34,7 +34,7 @@ presente nel \textit{DockerFile} aggiunge un layer all'immagine che viene quindi
 Questo significa che ad ogni layer sarà associato un artefatto diverso rispetto al layer precedente e bisognerà
 quindi prestare attenzioni agli elementi effettivamente coinvolti nelle varie operazioni.
 
-Per ottimizzare la gestione e la dimensione delle immmagini è quindi necessario ricordarsi di ripulire gli
+Per ottimizzare la gestione e la dimensione delle immagini è quindi necessario ricordarsi di ripulire gli
 elementi non necessari per il layer successivo. A tal fine nella piattaforma è stato deciso di
 utilizzare il \textit{multi-stage build pattern} per gestire i \textit{DockerFile}. Questo permette di creare basi
 differenti su cui costruire i propri artefatti. Ciò significa che è possibile
@@ -45,7 +45,7 @@ Nel listing \ref{lst:DockerFile} viene riportato il \textit{DockerFile} utilizza
 Questo prevede l'utilizzo di sei basi differenti: \textit{node}, \textit{dev}, \textit{source}, \textit{test}, \textit{preprod} e \textit{prod}.
 La base \textit{node} è una immagine basata sul progetto Alpine Linux contente Node.js e gli strumenti necessari per
 creare l'ambiente in cui sarà possibile eseguire l'applicazione. La base \textit{dev} copia i file \textit{package.json} e \textit{package-lock.json}
-contenenti l'elenco delle dipendenze dei componenti della applicazione poi con il comando \textit{npm intall} le installa.
+contenenti l'elenco delle dipendenze dei componenti della applicazione poi con il comando \textit{npm install} le installa.
 La base \textit{source} effettua la build dei vari componenti mentre la base \textit{test} utilizza lo stage \textit{source} per eseguire i test.
 Questo permetterà di verificare il comportamento dei componenti durante l'esecuzione delle procedure automatizzate di integrazione
 e deploy del software. La base \textit{preprod}, partendo dall'artefatto generato dalla stage \textit{dev}, elimina le dipendenze non necessarie per l'ambiente
@@ -87,16 +87,16 @@ L'esecuzione dei i singoli componenti della piattaforma avviene in container sep
 Questo è un servizio di orchestrazione di container che permette di automatizzare la configurazione, la coordinazione
 e la gestione dei servizi. Docker compose si basa su un file di specifica in formato YAML, il \textit{docker-compose.yml} file, che
 permette di definire un insieme di container da avviare e le loro proprietà a runtime.
-Ogni contaier viene considerato un servizio che interagisce con gli altri container secondo
+Ogni container viene considerato un servizio che interagisce con gli altri container secondo
 le direttive specificate. Tutti i container verranno poi eseguiti e configurati con il comando \textit{docker-compose up}.
 
-Nella piattaforma ci saranno i servizi api, doc e mailer che costiuiscono i componenti funzionali.
+Nella piattaforma ci saranno i servizi api, doc e mailer che costituiscono i componenti funzionali.
 Poi ci sarà il servizio database che si basa su una immagine Mongo e un servizio \textit{message broker} basato su una immagine RabbitMQ.
 Tutti i servizi sono configurati per riavviarsi automaticamente in caso di errore. Nel caso del servizio database e \textit{message broker} è stato
 creato anche uno script per eseguire l'\textit{healthcheck} in modo da verificare che l'avvio sia avvenuto con successo.
 
 L'utilizzo di Docker Compose permette l'orchestrazione di vari container in modo rapido ed efficace. Fornisce la possibilità
-di gestire manualmente i singoli servizi e interconneterli tra loro. Offre inoltre la possibilità di specificare quanti container
+di gestire manualmente i singoli servizi e interconnetterli tra loro. Offre inoltre la possibilità di specificare quanti container
 avviare per un servizio in modo da poterlo scalare facilmente.
 
 
